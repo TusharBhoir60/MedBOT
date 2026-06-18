@@ -1,0 +1,17 @@
+.git
+.github
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache
+.mypy_cache
+.venv
+venv
+htmlcov
+.env
+.env.local
+Dockerfile
+docker-compose.yml
+docker-compose.test.yml
+tests/
