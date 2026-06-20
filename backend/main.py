@@ -136,7 +136,7 @@ def create_application() -> FastAPI:
     # Exception handlers
     # ------------------------------------------------------------------ #
     application.add_exception_handler(
-        AarogyaBaseException,  # type: ignore[arg-type]
+        AarogyaBaseException,
         aarogya_exception_handler,  # type: ignore[arg-type]
     )
     application.add_exception_handler(

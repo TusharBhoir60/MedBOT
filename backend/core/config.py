@@ -1,5 +1,5 @@
 import os
-from typing import Literal, List
+from typing import Literal, List, Any
 from pydantic import Field, model_validator, AnyHttpUrl
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -27,7 +27,7 @@ class SecuritySettings(BaseSettings):
 
     @model_validator(mode="before")
     @classmethod
-    def parse_lists(cls, data: dict) -> dict:
+    def parse_lists(cls, data: dict[str, Any]) -> dict[str, Any]:
         if isinstance(data.get("allowed_hosts"), str):
             data["allowed_hosts"] = [host.strip() for host in data["allowed_hosts"].split(",")]
         if isinstance(data.get("allowed_origins"), str):

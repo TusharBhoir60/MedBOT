@@ -12,9 +12,12 @@ Planned Sprint 2+ structure:
     │   ├── symptom_agent.py
     │   ├── triage_agent.py
     │   └── escalation_agent.py
+    ├── confidence/    — Confidence scoring and calibration logic
     ├── graphs/        — LangGraph StateGraph compilation and workflow definitions
     │   ├── triage_graph.py
     │   └── cmar_graph.py
-    └── models.py      — Shared agent input/output Pydantic schemas
-                         (CMARAgentOutput, ConfidenceScore, ReasoningTrace)
+    ├── models.py      — Shared agent input/output Pydantic schemas
+    ├── prompts/       — Prompt templates for agents
+    ├── rag/           — Retrieval-Augmented Generation (RAG) components
+    └── state/         — State definitions for LangGraph workflows
 """

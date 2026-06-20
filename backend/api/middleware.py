@@ -18,7 +18,8 @@ import time
 import uuid
 from datetime import datetime, timezone
 
-from starlette.middleware.base import BaseHTTPMiddleware
+from typing import Any, Callable
+from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 from starlette.types import ASGIApp
@@ -47,7 +48,7 @@ class RequestSizeLimiterMiddleware(BaseHTTPMiddleware):
         super().__init__(app)
         self._max_size = max_size
 
-    async def dispatch(self, request: Request, call_next: any) -> Response:  # type: ignore[override]
+    async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
         content_length = request.headers.get("content-length")
         if content_length and int(content_length) > self._max_size:
             logger.warning(
@@ -80,7 +81,7 @@ class CorrelationIdMiddleware(BaseHTTPMiddleware):
       - Echoed back in the X-Request-ID response header
     """
 
-    async def dispatch(self, request: Request, call_next: any) -> Response:  # type: ignore[override]
+    async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
         correlation_id = request.headers.get("x-request-id") or str(uuid.uuid4())
         set_correlation_id(correlation_id)
 
@@ -96,7 +97,7 @@ class RequestTimingMiddleware(BaseHTTPMiddleware):
     This data feeds SLA monitoring and CMAR latency benchmarks.
     """
 
-    async def dispatch(self, request: Request, call_next: any) -> Response:  # type: ignore[override]
+    async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
         start = time.perf_counter()
         response = await call_next(request)
         duration_ms = (time.perf_counter() - start) * 1000
@@ -129,7 +130,7 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
     issues during local development with HTTP.
     """
 
-    async def dispatch(self, request: Request, call_next: any) -> Response:  # type: ignore[override]
+    async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
         response = await call_next(request)
 
         response.headers["X-Frame-Options"] = "DENY"
@@ -149,10 +150,10 @@ def _make_error_response(
     status_code: int,
     error_code: str,
     message: str,
-    details: dict | None = None,
+    details: dict[str, Any] | None = None,
 ) -> JSONResponse:
     """Build a structured JSON error response."""
-    content: dict = {
+    content: dict[str, Any] = {
         "error_code": error_code,
         "message": message,
         "correlation_id": get_correlation_id(),
