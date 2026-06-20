@@ -20,11 +20,45 @@ import logging
 from fastapi import APIRouter, status
 
 from api.dependencies import HealthServiceDep
-from schemas.health import HealthLiveResponse, HealthReadyResponse
+from schemas.health import (
+    HealthDBResponse,
+    HealthLiveResponse,
+    HealthReadyResponse,
+    HealthResponse,
+)
 
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/health", tags=["health"])
+
+
+@router.get(
+    "",
+    response_model=HealthResponse,
+    status_code=status.HTTP_200_OK,
+    summary="Overall health check",
+    description=(
+        "Confirms the application process is running and checks overall dependencies."
+    ),
+    responses={
+        status.HTTP_503_SERVICE_UNAVAILABLE: {
+            "description": "Service unhealthy or degraded",
+        }
+    },
+)
+async def health_overall(service: HealthServiceDep) -> HealthResponse:
+    """Return overall health status including database check."""
+    logger.debug("GET /health")
+    result = await service.get_overall_health()
+
+    if result.status == "degraded":
+        from fastapi.responses import JSONResponse
+        return JSONResponse(  # type: ignore[return-value]
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            content=result.model_dump(mode="json", by_alias=True),
+        )
+
+    return result
 
 
 @router.get(
@@ -65,6 +99,35 @@ async def health_ready(service: HealthServiceDep) -> HealthReadyResponse:
     result = await service.get_readiness()
 
     # HTTP 503 when degraded so load balancers stop routing traffic here
+    if result.status == "degraded":
+        from fastapi.responses import JSONResponse
+        return JSONResponse(  # type: ignore[return-value]
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            content=result.model_dump(mode="json", by_alias=True),
+        )
+
+    return result
+
+
+@router.get(
+    "/db",
+    response_model=HealthDBResponse,
+    status_code=status.HTTP_200_OK,
+    summary="Database health check",
+    description=(
+        "Confirms database connectivity and reports connection latency."
+    ),
+    responses={
+        status.HTTP_503_SERVICE_UNAVAILABLE: {
+            "description": "Database unreachable or degraded",
+        }
+    },
+)
+async def health_db(service: HealthServiceDep) -> HealthDBResponse:
+    """Return database health status specifically."""
+    logger.debug("GET /health/db")
+    result = await service.get_db_health()
+
     if result.status == "degraded":
         from fastapi.responses import JSONResponse
         return JSONResponse(  # type: ignore[return-value]

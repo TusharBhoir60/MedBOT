@@ -35,6 +35,31 @@ class HealthReadyResponse(BaseSchema):
     db_latency_ms: float
 
 
+class HealthResponse(BaseSchema):
+    """Response schema for GET /api/v1/health.
+
+    A general overall health check — confirms the application process is running
+    and details any checked dependencies.
+    """
+
+    status: str
+    version: str
+    timestamp: datetime
+
+
+class HealthDBResponse(BaseSchema):
+    """Response schema for GET /api/v1/health/db.
+
+    Database-specific health check — confirms database connectivity and latency.
+    """
+
+    status: str
+    version: str
+    timestamp: datetime
+    db_status: str
+    db_latency_ms: float
+
+
 class ErrorResponse(BaseSchema):
     """Standard error response schema returned by the global exception handler.
 
