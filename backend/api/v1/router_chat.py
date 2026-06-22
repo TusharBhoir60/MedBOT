@@ -14,7 +14,11 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/chat", tags=["AI Chat"])
 
+# In-memory session store for Sprint 2.1
+session_store: Dict[str, Any] = {}
+
 class ChatRequest(BaseModel):
+    session_id: str = Field(..., description="Unique session ID for the conversation")
     message: str = Field(..., description="The user's message")
     patient_info: Dict[str, Any] = Field(default_factory=dict, description="Current patient demographics")
     symptoms: list[str] = Field(default_factory=list, description="Raw symptoms")
@@ -27,17 +31,38 @@ async def invoke_chat(request: ChatRequest) -> Dict[str, Any]:
     """
     logger.info("Received chat invoke request")
     try:
-        initial_state = {
-            "messages": [HumanMessage(content=request.message)],
-            "patient_info": request.patient_info,
-            "symptoms": request.symptoms,
-            "confidence_scores": {},
-            "escalation_decision": False,
-            "next_step": "intake"
-        }
+        session_id = request.session_id
+        
+        if session_id in session_store:
+            # Resume existing session
+            current_state = session_store[session_id]
+            current_state["messages"].append(HumanMessage(content=request.message))
+            # Update any explicitly provided new info
+            if request.patient_info:
+                current_state["patient_info"].update(request.patient_info)
+            if request.symptoms:
+                current_state["symptoms"].extend(request.symptoms)
+        else:
+            # Initialize new session
+            current_state = {
+                "session_id": session_id,
+                "turn_count": 0,
+                "messages": [HumanMessage(content=request.message)],
+                "patient_info": request.patient_info,
+                "symptoms": request.symptoms,
+                "extracted_symptoms": {},
+                "possible_conditions": [],
+                "analysis": {},
+                "confidence_scores": {},
+                "escalation_decision": False,
+                "next_step": "intake"
+            }
         
         # Invoke the LangGraph workflow
-        final_state = await chat_workflow.ainvoke(initial_state)
+        final_state = await chat_workflow.ainvoke(current_state)
+        
+        # Persist session
+        session_store[session_id] = final_state
         
         # Serialize messages for the JSON response
         if "messages" in final_state:

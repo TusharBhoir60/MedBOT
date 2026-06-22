@@ -34,6 +34,12 @@ class SecuritySettings(BaseSettings):
             data["allowed_origins"] = [origin.strip() for origin in data["allowed_origins"].split(",")]
         return data
 
+class AIWorkflowSettings(BaseSettings):
+    confidence_high: float = Field(default=0.85, validation_alias="CONFIDENCE_HIGH")
+    confidence_medium: float = Field(default=0.70, validation_alias="CONFIDENCE_MEDIUM")
+    confidence_low: float = Field(default=0.50, validation_alias="CONFIDENCE_LOW")
+    max_followups: int = Field(default=3, validation_alias="MAX_FOLLOWUPS")
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -49,6 +55,7 @@ class Settings(BaseSettings):
     db: DatabaseSettings = Field(default_factory=DatabaseSettings)
     log: LoggingSettings = Field(default_factory=LoggingSettings)
     security: SecuritySettings = Field(default_factory=SecuritySettings)
+    ai: AIWorkflowSettings = Field(default_factory=AIWorkflowSettings)
 
     @model_validator(mode="after")
     def adjust_defaults_by_env(self) -> "Settings":

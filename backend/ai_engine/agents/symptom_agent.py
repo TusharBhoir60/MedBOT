@@ -19,7 +19,9 @@ class AnalysisExtraction(BaseModel):
     possible_conditions: list[str] = Field(..., description="List of possible medical conditions")
     analysis: str = Field(..., description="Detailed medical analysis and triage recommendation")
     confidence_score: float = Field(..., ge=0.0, le=1.0, description="Confidence in the analysis and triage")
+    uncertainty_factors: list[str] = Field(default_factory=list, description="Ambiguous symptoms or missing clinical data")
     confidence_reasoning: str = Field(..., description="Reasoning for the confidence score")
+    requires_followup: bool = Field(default=False, description="True if missing clinical context prevents accurate triage")
 
 
 class SymptomAgent(AgentInterface):
@@ -59,34 +61,36 @@ class SymptomAgent(AgentInterface):
             
             confidence = ConfidenceSchema(
                 score=extraction.confidence_score,
-                reasoning=extraction.confidence_reasoning
+                source="symptom_analysis",
+                uncertainty_factors=extraction.uncertainty_factors,
+                reasoning=extraction.confidence_reasoning,
+                requires_followup=extraction.requires_followup,
+                requires_human=extraction.confidence_score < 0.5
             )
             
             confidence_scores = state.get("confidence_scores", {})
             confidence_scores["symptom_analysis"] = confidence
             
-            # Decide if escalation is needed based on analysis confidence
-            escalation_decision = state.get("escalation_decision", False)
-            if confidence.score < 0.7:
-                escalation_decision = True
-            
             return {
                 "extracted_symptoms": extraction.extracted_symptoms,
                 "possible_conditions": extraction.possible_conditions,
                 "analysis": extraction.analysis,
-                "confidence_scores": confidence_scores,
-                "escalation_decision": escalation_decision,
-                "next_step": "handoff" if escalation_decision else "end"
+                "confidence_scores": confidence_scores
             }
             
         except Exception as e:
             logger.error(f"Error in SymptomAgent: {e}")
-            confidence = ConfidenceSchema(score=0.0, reasoning=f"Analysis failed: {str(e)}")
+            confidence = ConfidenceSchema(
+                score=0.0,
+                source="symptom_analysis",
+                uncertainty_factors=[f"Analysis failed: {str(e)}"],
+                reasoning="Agent exception occurred",
+                requires_followup=True,
+                requires_human=True
+            )
             confidence_scores = state.get("confidence_scores", {})
             confidence_scores["symptom_analysis"] = confidence
             
             return {
-                "confidence_scores": confidence_scores,
-                "escalation_decision": True,
-                "next_step": "handoff"
+                "confidence_scores": confidence_scores
             }
