@@ -40,6 +40,20 @@ class AIWorkflowSettings(BaseSettings):
     confidence_low: float = Field(default=0.50, validation_alias="CONFIDENCE_LOW")
     max_followups: int = Field(default=3, validation_alias="MAX_FOLLOWUPS")
 
+    # Weighted confidence aggregation
+    weight_symptom: float = Field(default=0.30, validation_alias="WEIGHT_SYMPTOM")
+    weight_risk: float = Field(default=0.20, validation_alias="WEIGHT_RISK")
+    weight_retrieval: float = Field(default=0.25, validation_alias="WEIGHT_RETRIEVAL")
+    weight_diagnosis: float = Field(default=0.25, validation_alias="WEIGHT_DIAGNOSIS")
+
+    # RAG settings
+    rag_top_k: int = Field(default=5, validation_alias="RAG_TOP_K")
+    chroma_persist_dir: str = Field(default="./chroma_db", validation_alias="CHROMA_PERSIST_DIR")
+
+    # Thresholds / Triggers
+    diagnosis_followup_threshold: float = Field(default=0.70, validation_alias="DIAGNOSIS_FOLLOWUP_THRESHOLD")
+    emergency_urgency_trigger: str = Field(default="emergency", validation_alias="EMERGENCY_URGENCY_TRIGGER")
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=".env",

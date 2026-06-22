@@ -2,7 +2,7 @@
 Shared state schemas for the LangGraph AI workflow.
 Implements the CMAR (Confidence-Weighted Multi-Agent Reasoning) state.
 """
-from typing import Annotated, Any, Dict, List, TypedDict
+from typing import Annotated, Any, Dict, List, Optional, TypedDict
 import operator
 from pydantic import BaseModel, Field
 
@@ -14,6 +14,15 @@ class ConfidenceSchema(BaseModel):
     reasoning: str = Field(..., description="Explanation for the confidence score")
     requires_followup: bool = Field(default=False, description="Flag indicating if the agent needs clarification from user")
     requires_human: bool = Field(default=False, description="Flag indicating if the agent requests human escalation")
+
+class MedicalDocument(BaseModel):
+    """Structured model for medical knowledge base documents."""
+    id: str = Field(..., description="Unique document identifier")
+    title: str = Field(..., description="Document title / condition name")
+    source: str = Field(..., description="Authoritative source (e.g. WHO Guideline)")
+    category: str = Field(..., description="Category such as infectious, chronic, emergency")
+    content: str = Field(..., description="Full document content")
+    version: Optional[str] = Field(default=None, description="Document version if applicable")
 
 class SharedState(TypedDict):
     """Global state shared across all agents in the LangGraph workflow."""
@@ -33,5 +42,10 @@ class SharedState(TypedDict):
     # Confidence per agent
     confidence_scores: Dict[str, ConfidenceSchema]
     
+    # Diagnosis outputs (Sprint 3)
+    diagnosis_output: Dict[str, Any]
+    citations: List[str]
+    
     escalation_decision: bool
     next_step: str
+
