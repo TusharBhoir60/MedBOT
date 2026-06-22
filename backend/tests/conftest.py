@@ -24,6 +24,7 @@ Database: aarogya_test (created by scripts/init_test_db.sql on first
           Docker startup via docker-entrypoint-initdb.d).
 """
 import os
+os.environ.setdefault("OPENAI_API_KEY", "mock-key")
 import asyncio
 from collections.abc import AsyncGenerator
 from typing import Any

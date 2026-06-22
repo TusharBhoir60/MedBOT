@@ -74,7 +74,7 @@ class SymptomAgent(AgentInterface):
             return {
                 "extracted_symptoms": extraction.extracted_symptoms,
                 "possible_conditions": extraction.possible_conditions,
-                "analysis": extraction.analysis,
+                "analysis": {"summary": extraction.analysis},
                 "confidence_scores": confidence_scores
             }
             
