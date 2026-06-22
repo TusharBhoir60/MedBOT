@@ -8,6 +8,9 @@ alembic>=1.13.0
 uuid6>=2024.7.20
 python-dotenv>=1.0.1
 psycopg2-binary>=2.9.9
+langgraph>=0.1.18
+langchain-core>=0.2.10
+langchain-openai>=0.1.10
 
 # Testing
 pytest>=8.2.0
