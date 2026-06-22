@@ -21,7 +21,9 @@ class IntakeExtraction(BaseModel):
     pre_existing_conditions: list[str] = Field(default_factory=list, description="Any pre-existing medical conditions mentioned")
     symptoms: list[str] = Field(default_factory=list, description="List of raw symptoms mentioned by the patient")
     confidence_score: float = Field(..., ge=0.0, le=1.0, description="Confidence in the extraction")
+    uncertainty_factors: list[str] = Field(default_factory=list, description="Missing demographic info or ambiguity")
     confidence_reasoning: str = Field(..., description="Reasoning for the confidence score")
+    requires_followup: bool = Field(default=False, description="True if missing info prevents a complete profile")
 
 
 class IntakeAgent(AgentInterface):
@@ -66,34 +68,35 @@ class IntakeAgent(AgentInterface):
                 
             confidence = ConfidenceSchema(
                 score=extraction.confidence_score,
-                reasoning=extraction.confidence_reasoning
+                source="intake",
+                uncertainty_factors=extraction.uncertainty_factors,
+                reasoning=extraction.confidence_reasoning,
+                requires_followup=extraction.requires_followup,
+                requires_human=extraction.confidence_score < 0.5
             )
             
             confidence_scores = state.get("confidence_scores", {})
             confidence_scores["intake"] = confidence
             
-            # If confidence is extremely low, we might decide to escalate immediately
-            escalation_decision = state.get("escalation_decision", False)
-            if confidence.score < 0.5:
-                escalation_decision = True
-            
             return {
                 "patient_info": patient_info,
                 "symptoms": extraction.symptoms,
-                "confidence_scores": confidence_scores,
-                "escalation_decision": escalation_decision,
-                "next_step": "handoff" if escalation_decision else "analysis"
+                "confidence_scores": confidence_scores
             }
             
         except Exception as e:
             logger.error(f"Error in IntakeAgent: {e}")
-            # Fallback in case of failure
-            confidence = ConfidenceSchema(score=0.0, reasoning=f"Extraction failed: {str(e)}")
+            confidence = ConfidenceSchema(
+                score=0.0,
+                source="intake",
+                uncertainty_factors=[f"Extraction failed: {str(e)}"],
+                reasoning="Agent exception occurred",
+                requires_followup=True,
+                requires_human=True
+            )
             confidence_scores = state.get("confidence_scores", {})
             confidence_scores["intake"] = confidence
             
             return {
-                "confidence_scores": confidence_scores,
-                "escalation_decision": True,
-                "next_step": "handoff"
+                "confidence_scores": confidence_scores
             }

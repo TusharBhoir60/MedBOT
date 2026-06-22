@@ -6,6 +6,10 @@ from langgraph.graph import StateGraph, START, END
 from ai_engine.state import SharedState
 from ai_engine.agents.intake_agent import IntakeAgent
 from ai_engine.agents.symptom_agent import SymptomAgent
+from ai_engine.agents.followup_agent import FollowUpAgent
+from ai_engine.agents.diagnosis_agent import DiagnosisAgent
+from ai_engine.nodes.confidence_aggregator import aggregate_confidence
+from ai_engine.nodes.confidence_check import evaluate_confidence
 
 def create_workflow() -> StateGraph:
     """
@@ -17,65 +21,60 @@ def create_workflow() -> StateGraph:
     # Initialize agents
     intake_agent = IntakeAgent()
     symptom_agent = SymptomAgent()
+    followup_agent = FollowUpAgent()
+    diagnosis_agent = DiagnosisAgent()
     
-    # Define node functions (wrappers around the async agent invokes)
+    # Define node wrappers
     async def run_intake(state: SharedState):
         return await intake_agent.invoke(state)
         
-    async def run_symptom_analysis(state: SharedState):
+    async def run_symptom(state: SharedState):
         return await symptom_agent.invoke(state)
         
+    async def run_followup(state: SharedState):
+        return await followup_agent.invoke(state)
+        
+    async def run_diagnosis(state: SharedState):
+        return await diagnosis_agent.invoke(state)
+        
     async def run_handoff(state: SharedState):
-        # Placeholder for handoff logic (e.g. notify a human agent)
+        # Stub for human handoff
         return {"next_step": "end"}
-    
-    # Add nodes to the graph
+        
+    # Add nodes
     workflow.add_node("intake", run_intake)
-    workflow.add_node("analysis", run_symptom_analysis)
+    workflow.add_node("symptom", run_symptom)
+    workflow.add_node("confidence_aggregator", aggregate_confidence)
+    workflow.add_node("confidence_check", evaluate_confidence)
+    workflow.add_node("diagnosis", run_diagnosis)
+    workflow.add_node("followup", run_followup)
     workflow.add_node("handoff", run_handoff)
     
-    # Define routing logic
-    def route_after_intake(state: SharedState) -> str:
-        next_step = state.get("next_step", "analysis")
-        if next_step == "handoff":
-            return "handoff"
-        return "analysis"
-        
-    def route_after_analysis(state: SharedState) -> str:
-        next_step = state.get("next_step", "end")
-        if next_step == "handoff":
-            return "handoff"
-        return "end"
-    
-    # Define edges
+    # Main Pipeline Edges
     workflow.add_edge(START, "intake")
+    workflow.add_edge("intake", "symptom")
+    workflow.add_edge("symptom", "confidence_aggregator")
+    workflow.add_edge("confidence_aggregator", "confidence_check")
     
-    # Conditional edge from intake
+    # Conditional Routing Logic from confidence_check
+    def route_after_check(state: SharedState) -> str:
+        return state.get("next_step", "handoff")
+        
     workflow.add_conditional_edges(
-        "intake",
-        route_after_intake,
+        "confidence_check",
+        route_after_check,
         {
-            "analysis": "analysis",
+            "diagnosis": "diagnosis",
+            "followup": "followup",
             "handoff": "handoff"
         }
     )
     
-    # Conditional edge from analysis
-    workflow.add_conditional_edges(
-        "analysis",
-        route_after_analysis,
-        {
-            "handoff": "handoff",
-            "end": END
-        }
-    )
-    
+    # Terminal Edges
+    workflow.add_edge("diagnosis", END)
+    workflow.add_edge("followup", END)
     workflow.add_edge("handoff", END)
     
-    # Compile the graph
-    app = workflow.compile()
-    
-    return app
+    return workflow.compile()
 
-# Singleton instance of the compiled workflow
 app = create_workflow()
