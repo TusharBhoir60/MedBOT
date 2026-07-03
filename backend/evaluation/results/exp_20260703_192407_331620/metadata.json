@@ -1,0 +1,32 @@
+{
+  "experiment_id": "exp_20260703_192407_331620",
+  "started_at": "2026-07-03T19:24:07.041292+00:00",
+  "dataset_version": "v1",
+  "random_seed": 42,
+  "git": {
+    "commit": "289696d",
+    "branch": "ML"
+  },
+  "environment": {
+    "python_version": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "langchain": "not installed",
+      "langgraph": "1.2.6",
+      "openai": "2.43.0",
+      "chromadb": "1.5.9",
+      "pydantic": "2.13.4",
+      "fastapi": "0.137.2",
+      "numpy": "2.5.0",
+      "pytest": "9.1.0"
+    }
+  },
+  "model_config": {
+    "embedding_model": "unknown",
+    "llm_model": "test-model",
+    "retrieval_top_k": 5,
+    "temperature": 0.0,
+    "confidence_threshold": 0.7,
+    "prompt_version": "v1"
+  }
+}
