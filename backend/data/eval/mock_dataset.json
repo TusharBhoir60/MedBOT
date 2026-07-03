@@ -1,0 +1,924 @@
+[
+  {
+    "patient_id": "P000",
+    "demographics": {
+      "age": 33,
+      "gender": "M"
+    },
+    "symptoms": [
+      "rash",
+      "pain behind eyes"
+    ],
+    "risk_factors": [
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Dengue",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P001",
+    "demographics": {
+      "age": 20,
+      "gender": "M"
+    },
+    "symptoms": [
+      "nausea",
+      "sweating"
+    ],
+    "risk_factors": [
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Emergency (Cardiac)",
+    "urgency_label": "critical",
+    "expected_referral_decision": "er"
+  },
+  {
+    "patient_id": "P002",
+    "demographics": {
+      "age": 63,
+      "gender": "F"
+    },
+    "symptoms": [
+      "nausea",
+      "fever",
+      "body aches",
+      "chills"
+    ],
+    "risk_factors": [
+      "none"
+    ],
+    "ground_truth_diagnosis": "Malaria",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P003",
+    "demographics": {
+      "age": 39,
+      "gender": "F"
+    },
+    "symptoms": [
+      "severe chest pain",
+      "shortness of breath",
+      "sweating"
+    ],
+    "risk_factors": [
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Emergency (Cardiac)",
+    "urgency_label": "critical",
+    "expected_referral_decision": "er"
+  },
+  {
+    "patient_id": "P004",
+    "demographics": {
+      "age": 24,
+      "gender": "F"
+    },
+    "symptoms": [
+      "headache",
+      "flushing"
+    ],
+    "risk_factors": [
+      "family history",
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Hypertension",
+    "urgency_label": "medium",
+    "expected_referral_decision": "scheduled_visit"
+  },
+  {
+    "patient_id": "P005",
+    "demographics": {
+      "age": 71,
+      "gender": "F"
+    },
+    "symptoms": [
+      "fatigue",
+      "chest pain",
+      "dizziness",
+      "pale skin"
+    ],
+    "risk_factors": [
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Anemia",
+    "urgency_label": "low",
+    "expected_referral_decision": "routine_checkup"
+  },
+  {
+    "patient_id": "P006",
+    "demographics": {
+      "age": 73,
+      "gender": "M"
+    },
+    "symptoms": [
+      "severe headache",
+      "pain behind eyes",
+      "high fever",
+      "mild bleeding"
+    ],
+    "risk_factors": [
+      "family history",
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Dengue",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P007",
+    "demographics": {
+      "age": 31,
+      "gender": "F"
+    },
+    "symptoms": [
+      "nosebleeds",
+      "visual changes"
+    ],
+    "risk_factors": [
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Hypertension",
+    "urgency_label": "medium",
+    "expected_referral_decision": "scheduled_visit"
+  },
+  {
+    "patient_id": "P008",
+    "demographics": {
+      "age": 35,
+      "gender": "M"
+    },
+    "symptoms": [
+      "shortness of breath",
+      "fainting",
+      "sweating",
+      "nausea"
+    ],
+    "risk_factors": [
+      "smoking",
+      "none"
+    ],
+    "ground_truth_diagnosis": "Emergency (Cardiac)",
+    "urgency_label": "critical",
+    "expected_referral_decision": "er"
+  },
+  {
+    "patient_id": "P009",
+    "demographics": {
+      "age": 31,
+      "gender": "F"
+    },
+    "symptoms": [
+      "joint pain",
+      "pain behind eyes",
+      "high fever"
+    ],
+    "risk_factors": [
+      "none"
+    ],
+    "ground_truth_diagnosis": "Dengue",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P010",
+    "demographics": {
+      "age": 33,
+      "gender": "F"
+    },
+    "symptoms": [
+      "chest pain",
+      "weakness",
+      "pale skin",
+      "headaches"
+    ],
+    "risk_factors": [
+      "none",
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Anemia",
+    "urgency_label": "low",
+    "expected_referral_decision": "routine_checkup"
+  },
+  {
+    "patient_id": "P011",
+    "demographics": {
+      "age": 23,
+      "gender": "M"
+    },
+    "symptoms": [
+      "nausea",
+      "headache"
+    ],
+    "risk_factors": [
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Malaria",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P012",
+    "demographics": {
+      "age": 42,
+      "gender": "F"
+    },
+    "symptoms": [
+      "headache",
+      "nausea",
+      "fever",
+      "body aches"
+    ],
+    "risk_factors": [
+      "smoking",
+      "family history"
+    ],
+    "ground_truth_diagnosis": "Malaria",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P013",
+    "demographics": {
+      "age": 36,
+      "gender": "F"
+    },
+    "symptoms": [
+      "muscle pain",
+      "pain behind eyes",
+      "rash",
+      "high fever"
+    ],
+    "risk_factors": [
+      "none"
+    ],
+    "ground_truth_diagnosis": "Dengue",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P014",
+    "demographics": {
+      "age": 50,
+      "gender": "M"
+    },
+    "symptoms": [
+      "rash",
+      "pain behind eyes",
+      "muscle pain",
+      "severe headache"
+    ],
+    "risk_factors": [
+      "obesity",
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Dengue",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P015",
+    "demographics": {
+      "age": 76,
+      "gender": "M"
+    },
+    "symptoms": [
+      "dizziness",
+      "visual changes"
+    ],
+    "risk_factors": [
+      "none",
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Hypertension",
+    "urgency_label": "medium",
+    "expected_referral_decision": "scheduled_visit"
+  },
+  {
+    "patient_id": "P016",
+    "demographics": {
+      "age": 21,
+      "gender": "M"
+    },
+    "symptoms": [
+      "mild bleeding",
+      "pain behind eyes",
+      "severe headache"
+    ],
+    "risk_factors": [
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Dengue",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P017",
+    "demographics": {
+      "age": 67,
+      "gender": "M"
+    },
+    "symptoms": [
+      "dizziness",
+      "cold hands and feet"
+    ],
+    "risk_factors": [
+      "none"
+    ],
+    "ground_truth_diagnosis": "Anemia",
+    "urgency_label": "low",
+    "expected_referral_decision": "routine_checkup"
+  },
+  {
+    "patient_id": "P018",
+    "demographics": {
+      "age": 73,
+      "gender": "F"
+    },
+    "symptoms": [
+      "pain radiating to arm",
+      "nausea"
+    ],
+    "risk_factors": [
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Emergency (Cardiac)",
+    "urgency_label": "critical",
+    "expected_referral_decision": "er"
+  },
+  {
+    "patient_id": "P019",
+    "demographics": {
+      "age": 46,
+      "gender": "F"
+    },
+    "symptoms": [
+      "chest pain",
+      "visual changes",
+      "nosebleeds"
+    ],
+    "risk_factors": [
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Hypertension",
+    "urgency_label": "medium",
+    "expected_referral_decision": "scheduled_visit"
+  },
+  {
+    "patient_id": "P020",
+    "demographics": {
+      "age": 55,
+      "gender": "M"
+    },
+    "symptoms": [
+      "sweats",
+      "fever"
+    ],
+    "risk_factors": [
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Malaria",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P021",
+    "demographics": {
+      "age": 75,
+      "gender": "M"
+    },
+    "symptoms": [
+      "rash",
+      "high fever",
+      "severe headache",
+      "mild bleeding"
+    ],
+    "risk_factors": [
+      "smoking",
+      "family history"
+    ],
+    "ground_truth_diagnosis": "Dengue",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P022",
+    "demographics": {
+      "age": 52,
+      "gender": "M"
+    },
+    "symptoms": [
+      "vomiting",
+      "headache",
+      "chills"
+    ],
+    "risk_factors": [
+      "obesity",
+      "none"
+    ],
+    "ground_truth_diagnosis": "Malaria",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P023",
+    "demographics": {
+      "age": 60,
+      "gender": "F"
+    },
+    "symptoms": [
+      "fatigue",
+      "dizziness"
+    ],
+    "risk_factors": [
+      "none",
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Anemia",
+    "urgency_label": "low",
+    "expected_referral_decision": "routine_checkup"
+  },
+  {
+    "patient_id": "P024",
+    "demographics": {
+      "age": 43,
+      "gender": "F"
+    },
+    "symptoms": [
+      "fatigue",
+      "headaches",
+      "dizziness",
+      "cold hands and feet"
+    ],
+    "risk_factors": [
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Anemia",
+    "urgency_label": "low",
+    "expected_referral_decision": "routine_checkup"
+  },
+  {
+    "patient_id": "P025",
+    "demographics": {
+      "age": 26,
+      "gender": "F"
+    },
+    "symptoms": [
+      "nausea",
+      "headache"
+    ],
+    "risk_factors": [
+      "family history"
+    ],
+    "ground_truth_diagnosis": "Malaria",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P026",
+    "demographics": {
+      "age": 46,
+      "gender": "M"
+    },
+    "symptoms": [
+      "dizziness",
+      "fatigue"
+    ],
+    "risk_factors": [
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Anemia",
+    "urgency_label": "low",
+    "expected_referral_decision": "routine_checkup"
+  },
+  {
+    "patient_id": "P027",
+    "demographics": {
+      "age": 49,
+      "gender": "F"
+    },
+    "symptoms": [
+      "severe headache",
+      "joint pain"
+    ],
+    "risk_factors": [
+      "none"
+    ],
+    "ground_truth_diagnosis": "Dengue",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P028",
+    "demographics": {
+      "age": 42,
+      "gender": "F"
+    },
+    "symptoms": [
+      "joint pain",
+      "high fever"
+    ],
+    "risk_factors": [
+      "family history",
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Dengue",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P029",
+    "demographics": {
+      "age": 36,
+      "gender": "M"
+    },
+    "symptoms": [
+      "fainting",
+      "sweating",
+      "shortness of breath",
+      "severe chest pain"
+    ],
+    "risk_factors": [
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Emergency (Cardiac)",
+    "urgency_label": "critical",
+    "expected_referral_decision": "er"
+  },
+  {
+    "patient_id": "P030",
+    "demographics": {
+      "age": 48,
+      "gender": "M"
+    },
+    "symptoms": [
+      "headache",
+      "dizziness"
+    ],
+    "risk_factors": [
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Hypertension",
+    "urgency_label": "medium",
+    "expected_referral_decision": "scheduled_visit"
+  },
+  {
+    "patient_id": "P031",
+    "demographics": {
+      "age": 61,
+      "gender": "M"
+    },
+    "symptoms": [
+      "nausea",
+      "fever"
+    ],
+    "risk_factors": [
+      "smoking",
+      "family history"
+    ],
+    "ground_truth_diagnosis": "Malaria",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P032",
+    "demographics": {
+      "age": 44,
+      "gender": "F"
+    },
+    "symptoms": [
+      "nausea",
+      "fever",
+      "body aches",
+      "vomiting"
+    ],
+    "risk_factors": [
+      "obesity",
+      "family history"
+    ],
+    "ground_truth_diagnosis": "Malaria",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P033",
+    "demographics": {
+      "age": 26,
+      "gender": "F"
+    },
+    "symptoms": [
+      "nosebleeds",
+      "flushing"
+    ],
+    "risk_factors": [
+      "family history",
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Hypertension",
+    "urgency_label": "medium",
+    "expected_referral_decision": "scheduled_visit"
+  },
+  {
+    "patient_id": "P034",
+    "demographics": {
+      "age": 22,
+      "gender": "M"
+    },
+    "symptoms": [
+      "muscle pain",
+      "mild bleeding",
+      "high fever"
+    ],
+    "risk_factors": [
+      "obesity",
+      "none"
+    ],
+    "ground_truth_diagnosis": "Dengue",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P035",
+    "demographics": {
+      "age": 28,
+      "gender": "F"
+    },
+    "symptoms": [
+      "pain behind eyes",
+      "mild bleeding"
+    ],
+    "risk_factors": [
+      "smoking",
+      "family history"
+    ],
+    "ground_truth_diagnosis": "Dengue",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P036",
+    "demographics": {
+      "age": 34,
+      "gender": "M"
+    },
+    "symptoms": [
+      "fainting",
+      "severe chest pain",
+      "shortness of breath"
+    ],
+    "risk_factors": [
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Emergency (Cardiac)",
+    "urgency_label": "critical",
+    "expected_referral_decision": "er"
+  },
+  {
+    "patient_id": "P037",
+    "demographics": {
+      "age": 31,
+      "gender": "F"
+    },
+    "symptoms": [
+      "dizziness",
+      "shortness of breath",
+      "nosebleeds"
+    ],
+    "risk_factors": [
+      "family history",
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Hypertension",
+    "urgency_label": "medium",
+    "expected_referral_decision": "scheduled_visit"
+  },
+  {
+    "patient_id": "P038",
+    "demographics": {
+      "age": 39,
+      "gender": "M"
+    },
+    "symptoms": [
+      "joint pain",
+      "pain behind eyes",
+      "high fever",
+      "muscle pain"
+    ],
+    "risk_factors": [
+      "obesity",
+      "family history"
+    ],
+    "ground_truth_diagnosis": "Dengue",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P039",
+    "demographics": {
+      "age": 25,
+      "gender": "M"
+    },
+    "symptoms": [
+      "headaches",
+      "chest pain",
+      "cold hands and feet",
+      "fatigue"
+    ],
+    "risk_factors": [
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Anemia",
+    "urgency_label": "low",
+    "expected_referral_decision": "routine_checkup"
+  },
+  {
+    "patient_id": "P040",
+    "demographics": {
+      "age": 20,
+      "gender": "F"
+    },
+    "symptoms": [
+      "dizziness",
+      "shortness of breath",
+      "flushing",
+      "chest pain"
+    ],
+    "risk_factors": [
+      "smoking",
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Hypertension",
+    "urgency_label": "medium",
+    "expected_referral_decision": "scheduled_visit"
+  },
+  {
+    "patient_id": "P041",
+    "demographics": {
+      "age": 67,
+      "gender": "F"
+    },
+    "symptoms": [
+      "chills",
+      "vomiting",
+      "fever",
+      "sweats"
+    ],
+    "risk_factors": [
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Malaria",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P042",
+    "demographics": {
+      "age": 29,
+      "gender": "F"
+    },
+    "symptoms": [
+      "headache",
+      "fever"
+    ],
+    "risk_factors": [
+      "obesity",
+      "none"
+    ],
+    "ground_truth_diagnosis": "Malaria",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P043",
+    "demographics": {
+      "age": 32,
+      "gender": "M"
+    },
+    "symptoms": [
+      "fever",
+      "headache",
+      "body aches",
+      "vomiting"
+    ],
+    "risk_factors": [
+      "family history",
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Malaria",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P044",
+    "demographics": {
+      "age": 30,
+      "gender": "F"
+    },
+    "symptoms": [
+      "fever",
+      "vomiting"
+    ],
+    "risk_factors": [
+      "family history",
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Malaria",
+    "urgency_label": "high",
+    "expected_referral_decision": "immediate_clinic"
+  },
+  {
+    "patient_id": "P045",
+    "demographics": {
+      "age": 61,
+      "gender": "F"
+    },
+    "symptoms": [
+      "chest pain",
+      "dizziness",
+      "flushing"
+    ],
+    "risk_factors": [
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Hypertension",
+    "urgency_label": "medium",
+    "expected_referral_decision": "scheduled_visit"
+  },
+  {
+    "patient_id": "P046",
+    "demographics": {
+      "age": 20,
+      "gender": "M"
+    },
+    "symptoms": [
+      "dizziness",
+      "nosebleeds"
+    ],
+    "risk_factors": [
+      "family history",
+      "none"
+    ],
+    "ground_truth_diagnosis": "Hypertension",
+    "urgency_label": "medium",
+    "expected_referral_decision": "scheduled_visit"
+  },
+  {
+    "patient_id": "P047",
+    "demographics": {
+      "age": 42,
+      "gender": "M"
+    },
+    "symptoms": [
+      "dizziness",
+      "visual changes",
+      "headache"
+    ],
+    "risk_factors": [
+      "smoking",
+      "family history"
+    ],
+    "ground_truth_diagnosis": "Hypertension",
+    "urgency_label": "medium",
+    "expected_referral_decision": "scheduled_visit"
+  },
+  {
+    "patient_id": "P048",
+    "demographics": {
+      "age": 61,
+      "gender": "M"
+    },
+    "symptoms": [
+      "cold hands and feet",
+      "dizziness"
+    ],
+    "risk_factors": [
+      "none",
+      "smoking"
+    ],
+    "ground_truth_diagnosis": "Anemia",
+    "urgency_label": "low",
+    "expected_referral_decision": "routine_checkup"
+  },
+  {
+    "patient_id": "P049",
+    "demographics": {
+      "age": 50,
+      "gender": "F"
+    },
+    "symptoms": [
+      "nosebleeds",
+      "chest pain",
+      "headache",
+      "visual changes"
+    ],
+    "risk_factors": [
+      "family history",
+      "obesity"
+    ],
+    "ground_truth_diagnosis": "Hypertension",
+    "urgency_label": "medium",
+    "expected_referral_decision": "scheduled_visit"
+  }
+]

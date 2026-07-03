@@ -1,0 +1,51 @@
+patient_id,age,gender,symptoms,risk_factors,ground_truth_diagnosis,urgency_label,expected_referral_decision
+P000,33,M,rash|pain behind eyes,smoking,Dengue,high,immediate_clinic
+P001,20,M,nausea|sweating,obesity,Emergency (Cardiac),critical,er
+P002,63,F,nausea|fever|body aches|chills,none,Malaria,high,immediate_clinic
+P003,39,F,severe chest pain|shortness of breath|sweating,obesity,Emergency (Cardiac),critical,er
+P004,24,F,headache|flushing,family history|smoking,Hypertension,medium,scheduled_visit
+P005,71,F,fatigue|chest pain|dizziness|pale skin,smoking,Anemia,low,routine_checkup
+P006,73,M,severe headache|pain behind eyes|high fever|mild bleeding,family history|obesity,Dengue,high,immediate_clinic
+P007,31,F,nosebleeds|visual changes,obesity,Hypertension,medium,scheduled_visit
+P008,35,M,shortness of breath|fainting|sweating|nausea,smoking|none,Emergency (Cardiac),critical,er
+P009,31,F,joint pain|pain behind eyes|high fever,none,Dengue,high,immediate_clinic
+P010,33,F,chest pain|weakness|pale skin|headaches,none|obesity,Anemia,low,routine_checkup
+P011,23,M,nausea|headache,obesity,Malaria,high,immediate_clinic
+P012,42,F,headache|nausea|fever|body aches,smoking|family history,Malaria,high,immediate_clinic
+P013,36,F,muscle pain|pain behind eyes|rash|high fever,none,Dengue,high,immediate_clinic
+P014,50,M,rash|pain behind eyes|muscle pain|severe headache,obesity|smoking,Dengue,high,immediate_clinic
+P015,76,M,dizziness|visual changes,none|smoking,Hypertension,medium,scheduled_visit
+P016,21,M,mild bleeding|pain behind eyes|severe headache,smoking,Dengue,high,immediate_clinic
+P017,67,M,dizziness|cold hands and feet,none,Anemia,low,routine_checkup
+P018,73,F,pain radiating to arm|nausea,obesity,Emergency (Cardiac),critical,er
+P019,46,F,chest pain|visual changes|nosebleeds,obesity,Hypertension,medium,scheduled_visit
+P020,55,M,sweats|fever,smoking,Malaria,high,immediate_clinic
+P021,75,M,rash|high fever|severe headache|mild bleeding,smoking|family history,Dengue,high,immediate_clinic
+P022,52,M,vomiting|headache|chills,obesity|none,Malaria,high,immediate_clinic
+P023,60,F,fatigue|dizziness,none|obesity,Anemia,low,routine_checkup
+P024,43,F,fatigue|headaches|dizziness|cold hands and feet,obesity,Anemia,low,routine_checkup
+P025,26,F,nausea|headache,family history,Malaria,high,immediate_clinic
+P026,46,M,dizziness|fatigue,smoking,Anemia,low,routine_checkup
+P027,49,F,severe headache|joint pain,none,Dengue,high,immediate_clinic
+P028,42,F,joint pain|high fever,family history|obesity,Dengue,high,immediate_clinic
+P029,36,M,fainting|sweating|shortness of breath|severe chest pain,smoking,Emergency (Cardiac),critical,er
+P030,48,M,headache|dizziness,smoking,Hypertension,medium,scheduled_visit
+P031,61,M,nausea|fever,smoking|family history,Malaria,high,immediate_clinic
+P032,44,F,nausea|fever|body aches|vomiting,obesity|family history,Malaria,high,immediate_clinic
+P033,26,F,nosebleeds|flushing,family history|smoking,Hypertension,medium,scheduled_visit
+P034,22,M,muscle pain|mild bleeding|high fever,obesity|none,Dengue,high,immediate_clinic
+P035,28,F,pain behind eyes|mild bleeding,smoking|family history,Dengue,high,immediate_clinic
+P036,34,M,fainting|severe chest pain|shortness of breath,obesity,Emergency (Cardiac),critical,er
+P037,31,F,dizziness|shortness of breath|nosebleeds,family history|smoking,Hypertension,medium,scheduled_visit
+P038,39,M,joint pain|pain behind eyes|high fever|muscle pain,obesity|family history,Dengue,high,immediate_clinic
+P039,25,M,headaches|chest pain|cold hands and feet|fatigue,smoking,Anemia,low,routine_checkup
+P040,20,F,dizziness|shortness of breath|flushing|chest pain,smoking|obesity,Hypertension,medium,scheduled_visit
+P041,67,F,chills|vomiting|fever|sweats,obesity,Malaria,high,immediate_clinic
+P042,29,F,headache|fever,obesity|none,Malaria,high,immediate_clinic
+P043,32,M,fever|headache|body aches|vomiting,family history|obesity,Malaria,high,immediate_clinic
+P044,30,F,fever|vomiting,family history|smoking,Malaria,high,immediate_clinic
+P045,61,F,chest pain|dizziness|flushing,smoking,Hypertension,medium,scheduled_visit
+P046,20,M,dizziness|nosebleeds,family history|none,Hypertension,medium,scheduled_visit
+P047,42,M,dizziness|visual changes|headache,smoking|family history,Hypertension,medium,scheduled_visit
+P048,61,M,cold hands and feet|dizziness,none|smoking,Anemia,low,routine_checkup
+P049,50,F,nosebleeds|chest pain|headache|visual changes,family history|obesity,Hypertension,medium,scheduled_visit
