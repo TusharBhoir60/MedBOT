@@ -1,0 +1,13 @@
+{
+    "routine": "नियमित",
+    "urgent": "तातडीचे",
+    "emergency": "आणीबाणी",
+    "dengue": "डेंग्यू",
+    "malaria": "हिवताप",
+    "hypertension": "उच्च रक्तदाब",
+    "anemia": "रक्तक्षय",
+    "Seek medical consultation within 24 hours.": "२४ तासांच्या आत वैद्यकीय सल्ला घ्या.",
+    "Rest completely for at least 5-7 days.": "किमान ५-७ दिवस पूर्ण विश्रांती घ्या.",
+    "No specific guidelines were retrieved": "कोणतीही विशिष्ट मार्गदर्शक तत्त्वे प्राप्त झाली नाहीत",
+    "The most likely diagnosis is": "सर्वाधिक संभाव्य निदान आहे"
+}
