@@ -10,6 +10,7 @@ from ai_engine.agents.followup_agent import FollowUpAgent
 from ai_engine.agents.diagnosis_agent import DiagnosisAgent
 from ai_engine.nodes.confidence_aggregator import aggregate_confidence
 from ai_engine.nodes.confidence_check import evaluate_confidence
+from ai_engine.orchestrator.patient_response_builder import build_patient_response
 
 def create_workflow() -> StateGraph:
     """
@@ -49,6 +50,7 @@ def create_workflow() -> StateGraph:
     workflow.add_node("diagnosis", run_diagnosis)
     workflow.add_node("followup", run_followup)
     workflow.add_node("handoff", run_handoff)
+    workflow.add_node("patient_response_builder", build_patient_response)
     
     # Main Pipeline Edges
     workflow.add_edge(START, "intake")
@@ -70,10 +72,12 @@ def create_workflow() -> StateGraph:
         }
     )
     
-    # Terminal Edges
-    workflow.add_edge("diagnosis", END)
-    workflow.add_edge("followup", END)
-    workflow.add_edge("handoff", END)
+    # Terminal Edges - Route everything through the response builder
+    workflow.add_edge("diagnosis", "patient_response_builder")
+    workflow.add_edge("followup", "patient_response_builder")
+    workflow.add_edge("handoff", "patient_response_builder")
+    
+    workflow.add_edge("patient_response_builder", END)
     
     return workflow.compile()
 

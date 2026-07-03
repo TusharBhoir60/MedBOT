@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field
 from langchain_core.messages import HumanMessage
 
 from ai_engine.workflow import app as chat_workflow
+from ai_engine.safety.response_validator import SafetyViolation
 
 logger = logging.getLogger(__name__)
 
@@ -73,6 +74,9 @@ async def invoke_chat(request: ChatRequest) -> Dict[str, Any]:
             
         return final_state
         
+    except SafetyViolation as sv:
+        logger.error(f"Safety violation blocked response: {sv}")
+        raise HTTPException(status_code=500, detail="Response blocked by safety validator. Please consult a human clinician.")
     except Exception as e:
         logger.error(f"Error during workflow execution: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail="Internal AI Engine Error")

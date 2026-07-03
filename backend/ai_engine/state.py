@@ -48,4 +48,9 @@ class SharedState(TypedDict):
     
     escalation_decision: bool
     next_step: str
-
+    
+    # Sprint 5 Post-processing Outputs
+    explanation: Dict[str, Any]
+    care_plan: Dict[str, Any]
+    audit_trail: Dict[str, Any]
+    patient_response: Dict[str, Any]
