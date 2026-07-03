@@ -1,0 +1,2310 @@
+{
+  "Baseline A: Rule-based": [
+    {
+      "patient_id": "P000",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P001",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P002",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P003",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P004",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P005",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P006",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P007",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P008",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P009",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P010",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P011",
+      "ground_truth": "Malaria",
+      "prediction": "Hypertension",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P012",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P013",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P014",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P015",
+      "ground_truth": "Hypertension",
+      "prediction": "Malaria",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P016",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P017",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P018",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P019",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P020",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P021",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P022",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P023",
+      "ground_truth": "Anemia",
+      "prediction": "Malaria",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P024",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P025",
+      "ground_truth": "Malaria",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P026",
+      "ground_truth": "Anemia",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P027",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P028",
+      "ground_truth": "Dengue",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P029",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P030",
+      "ground_truth": "Hypertension",
+      "prediction": "Anemia",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P031",
+      "ground_truth": "Malaria",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P032",
+      "ground_truth": "Malaria",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P033",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P034",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P035",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P036",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P037",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P038",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P039",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P040",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P041",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P042",
+      "ground_truth": "Malaria",
+      "prediction": "Dengue",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P043",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P044",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P045",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P046",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P047",
+      "ground_truth": "Hypertension",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P048",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P049",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8,
+      "retrieved_docs": [],
+      "citation_scores": []
+    }
+  ],
+  "Baseline B: LLM-only": [
+    {
+      "patient_id": "P000",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.7683735188815839,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P001",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.8103974920770708,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P002",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.734762713885156,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P003",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Unknown",
+      "confidence": 0.8607900962378803,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P004",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.647897794913067,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P005",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.6833614025014926,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P006",
+      "ground_truth": "Dengue",
+      "prediction": "Unknown",
+      "confidence": 0.8290482387019572,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P007",
+      "ground_truth": "Hypertension",
+      "prediction": "Unknown",
+      "confidence": 0.7139781901912012,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P008",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.7031867167436914,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P009",
+      "ground_truth": "Dengue",
+      "prediction": "Unknown",
+      "confidence": 0.6130351328769291,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P010",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.6374478488559628,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P011",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.6236400594235374,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P012",
+      "ground_truth": "Malaria",
+      "prediction": "Unknown",
+      "confidence": 0.788591939848333,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P013",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.7084905078500929,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P014",
+      "ground_truth": "Dengue",
+      "prediction": "Unknown",
+      "confidence": 0.6208665446471222,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P015",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8319205022366076,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P016",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8565953163045441,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P017",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.7140378675117498,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P018",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.8502331279922251,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P019",
+      "ground_truth": "Hypertension",
+      "prediction": "Unknown",
+      "confidence": 0.7065812100682565,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P020",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8105460940375654,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P021",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.6214207528735645,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P022",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.7602419631089123,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P023",
+      "ground_truth": "Anemia",
+      "prediction": "Unknown",
+      "confidence": 0.7386780635553347,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P024",
+      "ground_truth": "Anemia",
+      "prediction": "Unknown",
+      "confidence": 0.8776173538863654,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P025",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.6658845521910807,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P026",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.8304940732777116,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P027",
+      "ground_truth": "Dengue",
+      "prediction": "Unknown",
+      "confidence": 0.8465407782020425,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P028",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.7203494361066987,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P029",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Unknown",
+      "confidence": 0.8739408372556635,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P030",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8153742812156928,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P031",
+      "ground_truth": "Malaria",
+      "prediction": "Unknown",
+      "confidence": 0.7497693778476832,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P032",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.7928555610601273,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P033",
+      "ground_truth": "Hypertension",
+      "prediction": "Unknown",
+      "confidence": 0.6418890958576519,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P034",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.7616931869001871,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P035",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.7285301481883739,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P036",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.7085989331140833,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P037",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.6414995234672567,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P038",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8267346472601214,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P039",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.6458523958044783,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P040",
+      "ground_truth": "Hypertension",
+      "prediction": "Unknown",
+      "confidence": 0.8041443640488981,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P041",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.71543019350235,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P042",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.7404149663354032,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P043",
+      "ground_truth": "Malaria",
+      "prediction": "Unknown",
+      "confidence": 0.7659677688645863,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P044",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8040850230769556,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P045",
+      "ground_truth": "Hypertension",
+      "prediction": "Unknown",
+      "confidence": 0.8654365350387327,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P046",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8305796197972338,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P047",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.6880500385942279,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P048",
+      "ground_truth": "Anemia",
+      "prediction": "Unknown",
+      "confidence": 0.6009735948305188,
+      "retrieved_docs": [],
+      "citation_scores": []
+    },
+    {
+      "patient_id": "P049",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8159042006657773,
+      "retrieved_docs": [],
+      "citation_scores": []
+    }
+  ],
+  "Baseline C: RAG-only": [
+    {
+      "patient_id": "P000",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8904905497630161,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P001",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.7266027056994262,
+      "retrieved_docs": [
+        "doc_Emergency (Cardiac)_1",
+        "doc_Emergency (Cardiac)_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P002",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.9104173370431168,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P003",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.7497277754411832,
+      "retrieved_docs": [
+        "doc_Emergency (Cardiac)_1",
+        "doc_Emergency (Cardiac)_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P004",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.7403872589382883,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P005",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.9306085201545686,
+      "retrieved_docs": [
+        "doc_Anemia_1",
+        "doc_Anemia_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P006",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8497361461150572,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P007",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.7279669313302237,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P008",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.946330344735953,
+      "retrieved_docs": [
+        "doc_Emergency (Cardiac)_1",
+        "doc_Emergency (Cardiac)_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P009",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.7598630775845147,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P010",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.8418392359222274,
+      "retrieved_docs": [
+        "doc_Anemia_1",
+        "doc_Anemia_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P011",
+      "ground_truth": "Malaria",
+      "prediction": "Unknown",
+      "confidence": 0.8829768987111569,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P012",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.9444961234193335,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P013",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.7314401278801103,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P014",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.9367121699262477,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P015",
+      "ground_truth": "Hypertension",
+      "prediction": "Unknown",
+      "confidence": 0.8319184468545635,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P016",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.9410907265018638,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P017",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.8888162991589513,
+      "retrieved_docs": [
+        "doc_Anemia_1",
+        "doc_Anemia_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P018",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.8782372432047805,
+      "retrieved_docs": [
+        "doc_Emergency (Cardiac)_1",
+        "doc_Emergency (Cardiac)_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P019",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8679217399095707,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P020",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.9249035211607364,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P021",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.761976403416502,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P022",
+      "ground_truth": "Malaria",
+      "prediction": "Unknown",
+      "confidence": 0.7052585650017646,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P023",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.8471100286025877,
+      "retrieved_docs": [
+        "doc_Anemia_1",
+        "doc_Anemia_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P024",
+      "ground_truth": "Anemia",
+      "prediction": "Unknown",
+      "confidence": 0.8769602366371134,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P025",
+      "ground_truth": "Malaria",
+      "prediction": "Unknown",
+      "confidence": 0.7168500820275768,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P026",
+      "ground_truth": "Anemia",
+      "prediction": "Unknown",
+      "confidence": 0.7826071222701246,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P027",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.7696193159911366,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P028",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8348084828486886,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P029",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.9205957687851843,
+      "retrieved_docs": [
+        "doc_Emergency (Cardiac)_1",
+        "doc_Emergency (Cardiac)_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P030",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.7607493105989311,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P031",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8017649903714841,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P032",
+      "ground_truth": "Malaria",
+      "prediction": "Unknown",
+      "confidence": 0.8647456873786658,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P033",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8027755690124345,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P034",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.7135427968080426,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P035",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8615449378237461,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P036",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Unknown",
+      "confidence": 0.8820533971102956,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P037",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.727317258061201,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P038",
+      "ground_truth": "Dengue",
+      "prediction": "Unknown",
+      "confidence": 0.834071438477586,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P039",
+      "ground_truth": "Anemia",
+      "prediction": "Unknown",
+      "confidence": 0.7458720089468083,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P040",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.9186214885176449,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P041",
+      "ground_truth": "Malaria",
+      "prediction": "Unknown",
+      "confidence": 0.9020055611829256,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P042",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.7244771820504,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P043",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8351469845250762,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P044",
+      "ground_truth": "Malaria",
+      "prediction": "Unknown",
+      "confidence": 0.723315694045959,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P045",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.7590948726354373,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P046",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8203396044927598,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P047",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.9256107163776371,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P048",
+      "ground_truth": "Anemia",
+      "prediction": "Unknown",
+      "confidence": 0.7005388445878565,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "patient_id": "P049",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.9316295183898333,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2"
+      ],
+      "citation_scores": [
+        0.85,
+        0.72
+      ]
+    }
+  ],
+  "Baseline D: CMAR + RAG": [
+    {
+      "patient_id": "P000",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8541973534999149,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P001",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.9387960103089386,
+      "retrieved_docs": [
+        "doc_Emergency (Cardiac)_1",
+        "doc_Emergency (Cardiac)_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P002",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.9257555492706416,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P003",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.8360805947808511,
+      "retrieved_docs": [
+        "doc_Emergency (Cardiac)_1",
+        "doc_Emergency (Cardiac)_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P004",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8111118254813869,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P005",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.8115819385805381,
+      "retrieved_docs": [
+        "doc_Anemia_1",
+        "doc_Anemia_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P006",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8095270440801512,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P007",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.9746835548580943,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P008",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.8108071201484501,
+      "retrieved_docs": [
+        "doc_Emergency (Cardiac)_1",
+        "doc_Emergency (Cardiac)_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P009",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.9617550836153831,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P010",
+      "ground_truth": "Anemia",
+      "prediction": "Unknown",
+      "confidence": 0.8129125640413939,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P011",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8767173547504727,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P012",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.9082383279262551,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P013",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8075509158349222,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P014",
+      "ground_truth": "Dengue",
+      "prediction": "Unknown",
+      "confidence": 0.9249009012497793,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P015",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8601102707355782,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P016",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.9272479352062676,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P017",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.8504667573809572,
+      "retrieved_docs": [
+        "doc_Anemia_1",
+        "doc_Anemia_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P018",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.9226451498791535,
+      "retrieved_docs": [
+        "doc_Emergency (Cardiac)_1",
+        "doc_Emergency (Cardiac)_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P019",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.9765134830240477,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P020",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8017699368080069,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P021",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.9069687926713997,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P022",
+      "ground_truth": "Malaria",
+      "prediction": "Unknown",
+      "confidence": 0.9021505367793092,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P023",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.8251667483696288,
+      "retrieved_docs": [
+        "doc_Anemia_1",
+        "doc_Anemia_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P024",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.8130703496714037,
+      "retrieved_docs": [
+        "doc_Anemia_1",
+        "doc_Anemia_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P025",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8541476043311648,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P026",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.9032114128297015,
+      "retrieved_docs": [
+        "doc_Anemia_1",
+        "doc_Anemia_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P027",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.9869321289477816,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P028",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.9004987315944313,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P029",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.9053744336730388,
+      "retrieved_docs": [
+        "doc_Emergency (Cardiac)_1",
+        "doc_Emergency (Cardiac)_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P030",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8196814353644603,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P031",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8502485250825543,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P032",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.9410591699563897,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P033",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.853533691577,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P034",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.8651472546807192,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P035",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.9620534349244605,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P036",
+      "ground_truth": "Emergency (Cardiac)",
+      "prediction": "Emergency (Cardiac)",
+      "confidence": 0.8477130378932799,
+      "retrieved_docs": [
+        "doc_Emergency (Cardiac)_1",
+        "doc_Emergency (Cardiac)_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P037",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8096517897958808,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P038",
+      "ground_truth": "Dengue",
+      "prediction": "Dengue",
+      "confidence": 0.9575761369807216,
+      "retrieved_docs": [
+        "doc_Dengue_1",
+        "doc_Dengue_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P039",
+      "ground_truth": "Anemia",
+      "prediction": "Unknown",
+      "confidence": 0.8633757423349668,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P040",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.9861616112274788,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P041",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8839487472535617,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P042",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.9065723043072018,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P043",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.9795596784188614,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P044",
+      "ground_truth": "Malaria",
+      "prediction": "Malaria",
+      "confidence": 0.8283203142409188,
+      "retrieved_docs": [
+        "doc_Malaria_1",
+        "doc_Malaria_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P045",
+      "ground_truth": "Hypertension",
+      "prediction": "Unknown",
+      "confidence": 0.8701510370573164,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P046",
+      "ground_truth": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.8816594754473467,
+      "retrieved_docs": [
+        "doc_Hypertension_1",
+        "doc_Hypertension_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P047",
+      "ground_truth": "Hypertension",
+      "prediction": "Unknown",
+      "confidence": 0.8692837879121786,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P048",
+      "ground_truth": "Anemia",
+      "prediction": "Anemia",
+      "confidence": 0.9847172903532795,
+      "retrieved_docs": [
+        "doc_Anemia_1",
+        "doc_Anemia_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    },
+    {
+      "patient_id": "P049",
+      "ground_truth": "Hypertension",
+      "prediction": "Unknown",
+      "confidence": 0.867983754127581,
+      "retrieved_docs": [
+        "doc_Unknown_1",
+        "doc_Unknown_2",
+        "doc_general_guideline"
+      ],
+      "citation_scores": [
+        0.92,
+        0.88,
+        0.65
+      ]
+    }
+  ]
+}
