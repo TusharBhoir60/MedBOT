@@ -39,6 +39,18 @@ class JSONFormatter(logging.Formatter):
             "message": record.getMessage(),
             "correlation_id": getattr(record, "correlation_id", ""),
         }
+        
+        # Merge extra fields
+        standard_keys = {
+            "name", "msg", "args", "levelname", "levelno", "pathname", "filename",
+            "module", "exc_info", "exc_text", "stack_info", "lineno", "funcName",
+            "created", "msecs", "relativeCreated", "thread", "threadName",
+            "processName", "process", "message", "correlation_id", "taskName"
+        }
+        for key, value in record.__dict__.items():
+            if key not in standard_keys:
+                log_entry[key] = value
+
         if record.exc_info and record.exc_info[1] is not None:
             log_entry["exception"] = self.formatException(record.exc_info)
         return json.dumps(log_entry, default=str)

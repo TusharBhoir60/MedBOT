@@ -11,6 +11,8 @@ from ai_engine.agents.diagnosis_agent import DiagnosisAgent
 from ai_engine.nodes.confidence_aggregator import aggregate_confidence
 from ai_engine.nodes.confidence_check import evaluate_confidence
 from ai_engine.orchestrator.patient_response_builder import build_patient_response
+from database.engine import async_session_factory
+from models.review import ReviewTask
 
 def create_workflow() -> StateGraph:
     """
@@ -39,7 +41,17 @@ def create_workflow() -> StateGraph:
         return await diagnosis_agent.invoke(state)
         
     async def run_handoff(state: SharedState):
-        # Stub for human handoff
+        """Human Handoff Node: Saves task to Review Queue Database"""
+        async with async_session_factory() as session:
+            task = ReviewTask(
+                session_id=state.get("session_id"),
+                patient_info=state.get("patient_info", {}),
+                symptoms=state.get("symptoms", []),
+                diagnosis_output=state.get("diagnosis_output", {})
+            )
+            session.add(task)
+            await session.commit()
+            
         return {"next_step": "end"}
         
     # Add nodes

@@ -45,6 +45,11 @@ class HealthResponse(BaseSchema):
     status: str
     version: str
     timestamp: datetime
+    uptime_seconds: float
+    db_status: str = "unknown"
+    vector_store_status: str = "unknown"
+    ai_services_status: str = "unknown"
+    review_queue_status: str = "unknown"
 
 
 class HealthDBResponse(BaseSchema):

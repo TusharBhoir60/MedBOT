@@ -222,3 +222,37 @@ async def unhandled_exception_handler(request: Request, exc: Exception) -> JSONR
         error_code="INTERNAL_SERVER_ERROR",
         message="An unexpected error occurred. Please try again later.",
     )
+
+import asyncio
+from collections import defaultdict
+
+class RateLimiterMiddleware(BaseHTTPMiddleware):
+    """
+    Lightweight in-memory rate limiter based on sliding window.
+    For production, this should be backed by Redis.
+    Limits by IP address (request.client.host).
+    """
+    def __init__(self, app: ASGIApp, default_limit: int = 100) -> None:
+        super().__init__(app)
+        self.default_limit = default_limit
+        self._requests: dict[str, list[float]] = defaultdict(list)
+        self._lock = asyncio.Lock()
+
+    async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
+        client_ip = request.client.host if request.client else "unknown"
+        now = time.time()
+        
+        async with self._lock:
+            # Remove requests older than 60 seconds
+            self._requests[client_ip] = [ts for ts in self._requests[client_ip] if now - ts < 60.0]
+            
+            if len(self._requests[client_ip]) >= self.default_limit:
+                logger.warning(f"Rate limit exceeded for IP {client_ip}")
+                return _make_error_response(
+                    status_code=429,
+                    error_code="TOO_MANY_REQUESTS",
+                    message="Rate limit exceeded. Please try again later.",
+                )
+            self._requests[client_ip].append(now)
+            
+        return await call_next(request)

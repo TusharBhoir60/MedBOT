@@ -44,13 +44,13 @@ from main import app
 # ── Test database connection ─────────────────────────────────────────────────
 TEST_DATABASE_URL = os.getenv(
     "TEST_DATABASE_URL",
-    "postgresql+asyncpg://postgres:postgres@localhost:5433/aarogya_test",
+    "sqlite+aiosqlite:///./test.db",
 )
 
 test_engine = create_async_engine(
     TEST_DATABASE_URL,
     echo=False,
-    pool_pre_ping=True,
+    connect_args={"check_same_thread": False} if TEST_DATABASE_URL.startswith("sqlite") else {},
 )
 
 

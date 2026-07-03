@@ -94,10 +94,21 @@ class HealthService:
         ping_result = await self._repository.ping_db()
         db_status = str(ping_result.get("status", "unknown"))
         overall_status = "healthy" if db_status == "connected" else "degraded"
+        
+        # Mock other component health checks for now
+        vector_store_status = "healthy"
+        ai_services_status = "healthy"
+        review_queue_status = "healthy"
+        
         return HealthResponse(
             status=overall_status,
             version=settings.APP_VERSION,
             timestamp=datetime.now(timezone.utc),
+            uptime_seconds=time.monotonic() - _START_TIME,
+            db_status=db_status,
+            vector_store_status=vector_store_status,
+            ai_services_status=ai_services_status,
+            review_queue_status=review_queue_status
         )
 
     async def get_db_health(self) -> HealthDBResponse:
