@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Search, MessageSquare, Trash2, Pencil, MoreHorizontal } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
