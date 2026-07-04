@@ -37,3 +37,6 @@ class ReviewTaskResponse(BaseSchema):
 
 class ReviewTaskOverride(BaseModel):
     final_response: Dict[str, Any] = Field(..., description="The final overridden PatientResponse payload")
+
+class ReviewRejectRequest(BaseModel):
+    reason: Optional[str] = Field(None, description="Optional reason for rejection", max_length=2000)

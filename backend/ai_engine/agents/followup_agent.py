@@ -6,11 +6,14 @@ import logging
 from typing import Any, Dict
 
 from langchain_core.messages import AIMessage
-from langchain_openai import ChatOpenAI
+from langchain_core.language_models.chat_models import BaseChatModel
 from pydantic import BaseModel, Field
+from core.config import settings
+from ai_engine.providers import get_llm_provider
 
 from ai_engine.interfaces import AgentInterface
 from ai_engine.state import SharedState
+from ai_engine.prompts.registry import FOLLOWUP_PROMPT
 
 logger = logging.getLogger(__name__)
 
@@ -20,8 +23,8 @@ class FollowupOutput(BaseModel):
 class FollowUpAgent(AgentInterface):
     """Generates a clarification question based on uncertainty factors."""
     
-    def __init__(self, llm: ChatOpenAI | None = None) -> None:
-        self.llm = llm or ChatOpenAI(model="gpt-4o", temperature=0.7)
+    def __init__(self, llm: Optional[BaseChatModel] = None) -> None:
+        self.llm = llm or get_llm_provider(model_name=settings.ai.model_primary, temperature=0.7)
         self.structured_llm = self.llm.with_structured_output(FollowupOutput)
         
     async def invoke(self, state: SharedState) -> Dict[str, Any]:
@@ -36,14 +39,7 @@ class FollowUpAgent(AgentInterface):
             logger.warning("FollowUpAgent called but no uncertainty factors found.")
             return {"turn_count": state.get("turn_count", 0) + 1}
             
-        prompt = f"""
-        You are a medical triage assistant. You need to ask the user a polite, clear follow-up question 
-        to resolve the following missing information or ambiguities:
-        
-        {uncertainty_factors}
-        
-        Only ask the single most important question or a compound question covering these factors.
-        """
+        prompt = FOLLOWUP_PROMPT.format(uncertainty_factors=uncertainty_factors)
         
         try:
             # Type ignore because with_structured_output typing is complex

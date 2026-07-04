@@ -48,8 +48,11 @@ class HealthResponse(BaseSchema):
     uptime_seconds: float
     db_status: str = "unknown"
     vector_store_status: str = "unknown"
+    vector_store_latency_ms: float = 0.0
     ai_services_status: str = "unknown"
+    ai_services_latency_ms: float = 0.0
     review_queue_status: str = "unknown"
+    review_queue_latency_ms: float = 0.0
 
 
 class HealthDBResponse(BaseSchema):

@@ -5,12 +5,15 @@ Responsible for extracting initial patient demographics and raw symptoms.
 import logging
 from typing import Any, Dict
 
-from langchain_core.messages import BaseMessage, HumanMessage
-from langchain_openai import ChatOpenAI
+from pydantic import BaseModel, Field
+from langchain_core.language_models.chat_models import BaseChatModel
+from core.config import settings
+from ai_engine.providers import get_llm_provider
 from pydantic import BaseModel, Field
 
 from ai_engine.interfaces import AgentInterface
 from ai_engine.state import ConfidenceSchema, SharedState
+from ai_engine.prompts.registry import INTAKE_PROMPT
 
 logger = logging.getLogger(__name__)
 
@@ -29,9 +32,9 @@ class IntakeExtraction(BaseModel):
 class IntakeAgent(AgentInterface):
     """Agent that extracts initial demographic and symptom data from the user's message."""
     
-    def __init__(self, llm: ChatOpenAI | None = None) -> None:
-        # Defaults to gpt-4o-mini for structured extraction
-        self.llm = llm or ChatOpenAI(model="gpt-4o-mini", temperature=0)
+    def __init__(self, llm: BaseChatModel | None = None) -> None:
+        # Defaults to model_fast for structured extraction
+        self.llm = llm or get_llm_provider(model_name=settings.ai.model_fast, temperature=0.0)
         self.structured_llm = self.llm.with_structured_output(IntakeExtraction)
         
     async def invoke(self, state: SharedState) -> Dict[str, Any]:
@@ -46,13 +49,7 @@ class IntakeAgent(AgentInterface):
         latest_message = messages[-1]
         content = latest_message.content if hasattr(latest_message, "content") else str(latest_message)
         
-        prompt = f"""
-        Extract the following information from the user's medical inquiry.
-        If a field is not mentioned, leave it empty or null.
-        
-        User Inquiry:
-        {content}
-        """
+        prompt = INTAKE_PROMPT.format(content=content)
         
         try:
             # Type ignore because with_structured_output typing is complex

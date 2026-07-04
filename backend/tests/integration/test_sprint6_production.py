@@ -69,7 +69,39 @@ async def test_review_lifecycle(db_session: AsyncSession, client: AsyncClient, a
         headers=auth_headers
     )
     assert response.status_code == 200
+    assert response.status_code == 200
     assert response.json()["status"] == "OVERRIDDEN"
+
+@pytest.mark.asyncio
+async def test_review_get_and_reject(db_session: AsyncSession, client: AsyncClient, auth_headers):
+    # 1. Setup - Create a ReviewTask
+    task = ReviewTask(
+        session_id="test-session-reject",
+        patient_info={"age": 30},
+        symptoms=["headache"],
+        diagnosis_output={"urgency_level": "routine"}
+    )
+    db_session.add(task)
+    await db_session.commit()
+    await db_session.refresh(task)
+    task_id = str(task.id)
+    
+    # 2. Get Single Task
+    response = await client.get(f"/api/v1/review/{task_id}", headers=auth_headers)
+    assert response.status_code == 200
+    assert response.json()["id"] == task_id
+    
+    # 3. Reject Task
+    response = await client.post(
+        f"/api/v1/review/{task_id}/reject",
+        json={"reason": "Not enough information"},
+        headers=auth_headers
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "REJECTED"
+    assert len(data["comments"]) == 1
+    assert data["comments"][0]["content"] == "Not enough information"
 
 @pytest.mark.asyncio
 async def test_auth_rejection(client: AsyncClient):

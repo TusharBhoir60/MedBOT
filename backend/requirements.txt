@@ -23,3 +23,7 @@ mypy>=1.10.0
 
 # Auth
 PyJWT>=2.13.0
+passlib>=1.7.4
+bcrypt>=4.2.0
+aiosqlite>=0.20.0
+python-multipart>=0.0.9

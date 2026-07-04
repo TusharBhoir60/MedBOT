@@ -22,8 +22,8 @@ class LoggingSettings(BaseSettings):
 
 class SecuritySettings(BaseSettings):
     allowed_hosts: List[str] = Field(default=["*"])
-    allowed_origins: List[str] = Field(default=["*"])
-    max_request_size: int = Field(default=10485760, validation_alias="MAX_REQUEST_SIZE")  # 10MB default
+    allowed_origins: List[str] = Field(default=["http://localhost:3000"])
+    max_request_size: int = Field(default=5242880, validation_alias="MAX_REQUEST_SIZE")  # 5MB default
     
     # JWT Authentication
     secret_key: str = Field(default="dev-secret-key-change-in-prod", validation_alias="SECRET_KEY")
@@ -43,6 +43,11 @@ class SecuritySettings(BaseSettings):
         return data
 
 class AIWorkflowSettings(BaseSettings):
+    openai_api_key: str = Field(default="mock-key-for-tests", validation_alias="OPENAI_API_KEY")
+    model_primary: str = Field(default="gpt-4o", validation_alias="OPENAI_MODEL_PRIMARY")
+    model_fast: str = Field(default="gpt-4o-mini", validation_alias="OPENAI_MODEL_FAST")
+    health_timeout_seconds: float = Field(default=5.0, validation_alias="HEALTH_TIMEOUT_SECONDS")
+    
     confidence_high: float = Field(default=0.85, validation_alias="CONFIDENCE_HIGH")
     confidence_medium: float = Field(default=0.70, validation_alias="CONFIDENCE_MEDIUM")
     confidence_low: float = Field(default=0.50, validation_alias="CONFIDENCE_LOW")

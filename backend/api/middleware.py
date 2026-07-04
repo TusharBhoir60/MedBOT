@@ -246,13 +246,22 @@ class RateLimiterMiddleware(BaseHTTPMiddleware):
             # Remove requests older than 60 seconds
             self._requests[client_ip] = [ts for ts in self._requests[client_ip] if now - ts < 60.0]
             
+            
             if len(self._requests[client_ip]) >= self.default_limit:
                 logger.warning(f"Rate limit exceeded for IP {client_ip}")
-                return _make_error_response(
+                response = _make_error_response(
                     status_code=429,
                     error_code="TOO_MANY_REQUESTS",
                     message="Rate limit exceeded. Please try again later.",
                 )
+                response.headers["X-RateLimit-Limit"] = str(self.default_limit)
+                response.headers["X-RateLimit-Remaining"] = "0"
+                return response
+                
             self._requests[client_ip].append(now)
+            remaining = self.default_limit - len(self._requests[client_ip])
             
-        return await call_next(request)
+        response = await call_next(request)
+        response.headers["X-RateLimit-Limit"] = str(self.default_limit)
+        response.headers["X-RateLimit-Remaining"] = str(remaining)
+        return response

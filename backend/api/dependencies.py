@@ -16,6 +16,8 @@ from database.session import get_db_session
 from repositories.health_repository import HealthRepository
 from services.health_service import HealthService
 from core.security.jwt import auth_provider
+from repositories.chat_repository import ChatRepository
+from services.chat_service import ChatService
 
 logger = logging.getLogger(__name__)
 
@@ -37,6 +39,18 @@ def get_health_service(
 
 # Type alias for use in route handlers
 HealthServiceDep = Annotated[HealthService, Depends(get_health_service)]
+
+def get_chat_repository(session: DatabaseSession) -> ChatRepository:
+    """Construct a ChatRepository with the request-scoped DB session."""
+    return ChatRepository(session=session)
+
+def get_chat_service(
+    repository: Annotated[ChatRepository, Depends(get_chat_repository)],
+) -> ChatService:
+    """Construct a ChatService with its ChatRepository dependency."""
+    return ChatService(repository=repository)
+
+ChatServiceDep = Annotated[ChatService, Depends(get_chat_service)]
 
 security = HTTPBearer()
 

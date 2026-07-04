@@ -5,11 +5,14 @@ Responsible for normalizing symptoms and suggesting possible conditions based on
 import logging
 from typing import Any, Dict
 
-from langchain_openai import ChatOpenAI
+from langchain_core.language_models.chat_models import BaseChatModel
 from pydantic import BaseModel, Field
 
+from core.config import settings
+from ai_engine.providers import get_llm_provider
 from ai_engine.interfaces import AgentInterface
 from ai_engine.state import ConfidenceSchema, SharedState
+from ai_engine.prompts.registry import SYMPTOM_ANALYSIS_PROMPT
 
 logger = logging.getLogger(__name__)
 
@@ -27,9 +30,9 @@ class AnalysisExtraction(BaseModel):
 class SymptomAgent(AgentInterface):
     """Agent that analyzes symptoms and patient info to provide possible conditions."""
     
-    def __init__(self, llm: ChatOpenAI | None = None) -> None:
-        # Defaults to gpt-4o for clinical reasoning
-        self.llm = llm or ChatOpenAI(model="gpt-4o", temperature=0.2)
+    def __init__(self, llm: BaseChatModel | None = None) -> None:
+        # Defaults to model_primary for clinical reasoning
+        self.llm = llm or get_llm_provider(model_name=settings.ai.model_primary, temperature=0.2)
         self.structured_llm = self.llm.with_structured_output(AnalysisExtraction)
         
     async def invoke(self, state: SharedState) -> Dict[str, Any]:
@@ -42,18 +45,10 @@ class SymptomAgent(AgentInterface):
             logger.warning("No symptoms provided to SymptomAgent.")
             return {"next_step": "end"}
             
-        prompt = f"""
-        You are a highly capable clinical triage assistant.
-        Analyze the following patient profile and symptoms to provide a standardized list of symptoms, possible conditions, and a detailed analysis.
-        
-        Patient Profile:
-        {patient_info}
-        
-        Raw Symptoms:
-        {raw_symptoms}
-        
-        Provide the output in the requested structured format.
-        """
+        prompt = SYMPTOM_ANALYSIS_PROMPT.format(
+            patient_info=patient_info,
+            raw_symptoms=raw_symptoms
+        )
         
         try:
             # Type ignore because with_structured_output typing is complex

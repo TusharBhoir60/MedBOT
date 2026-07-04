@@ -8,7 +8,7 @@ from sqlalchemy.orm import selectinload
 
 from database.session import get_db_session
 from models.review import ReviewTask, ReviewComment, ReviewStatus
-from schemas.review import ReviewTaskResponse, ReviewCommentCreate, ReviewTaskOverride
+from schemas.review import ReviewTaskResponse, ReviewCommentCreate, ReviewTaskOverride, ReviewRejectRequest
 from api.dependencies import get_current_user, require_role
 
 logger = logging.getLogger(__name__)
@@ -42,6 +42,18 @@ async def get_review_queue(
         .order_by(ReviewTask.status)
     )
     return result.scalars().all()
+
+@router.get("/{task_id}", response_model=ReviewTaskResponse)
+async def get_task(
+    task_id: str,
+    db: AsyncSession = Depends(get_db_session),
+    user: dict[str, Any] = Depends(require_role("physician"))
+):
+    """Get a single task by ID."""
+    task = await _get_task(db, task_id)
+    if not task:
+        raise HTTPException(status_code=404, detail="Task not found")
+    return task
 
 @router.post("/{task_id}/assign", response_model=ReviewTaskResponse)
 async def assign_task(
@@ -94,6 +106,33 @@ async def override_task(
         
     task.status = ReviewStatus.OVERRIDDEN
     task.final_response = override.final_response
+    await db.commit()
+    db.expire_all()
+    task = await _get_task(db, task_id)
+    return task
+
+@router.post("/{task_id}/reject", response_model=ReviewTaskResponse)
+async def reject_task(
+    task_id: str,
+    rejection: ReviewRejectRequest,
+    db: AsyncSession = Depends(get_db_session),
+    user: dict[str, Any] = Depends(require_role("physician"))
+):
+    """Reject a task."""
+    task = await _get_task(db, task_id)
+    if not task:
+        raise HTTPException(status_code=404, detail="Task not found")
+        
+    task.status = ReviewStatus.REJECTED
+    
+    if rejection.reason:
+        new_comment = ReviewComment(
+            task_id=UUID(task_id),
+            author_id=user.get("sub"),
+            content=rejection.reason
+        )
+        db.add(new_comment)
+        
     await db.commit()
     db.expire_all()
     task = await _get_task(db, task_id)

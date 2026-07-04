@@ -9,8 +9,9 @@ database was rejected during architectural review (YAGNI, creates
 import logging
 import time
 
-from sqlalchemy import text
+from sqlalchemy import text, select, func
 from sqlalchemy.ext.asyncio import AsyncSession
+from models.review import ReviewTask, ReviewStatus
 
 from core.constants import HEALTH_DB_PING_QUERY
 
@@ -52,3 +53,21 @@ class HealthRepository:
             elapsed_ms = (time.perf_counter() - start) * 1000
             logger.error("DB ping failed after %.2fms: %s", elapsed_ms, exc)
             return {"status": "disconnected", "latency_ms": round(elapsed_ms, 2)}
+
+    async def check_review_queue(self) -> dict[str, float | str]:
+        """Check review queue status and latency."""
+        start = time.perf_counter()
+        try:
+            result = await self._session.execute(
+                select(func.count()).select_from(ReviewTask).where(ReviewTask.status == ReviewStatus.NEW)
+            )
+            count = result.scalar()
+            elapsed_ms = (time.perf_counter() - start) * 1000
+            
+            # If queue has too many tasks, could be degraded, but for now just healthy
+            status = "healthy" if count is not None else "unhealthy"
+            return {"status": status, "latency_ms": round(elapsed_ms, 2)}
+        except Exception as exc:
+            elapsed_ms = (time.perf_counter() - start) * 1000
+            logger.error("Review queue check failed: %s", exc)
+            return {"status": "unhealthy", "latency_ms": round(elapsed_ms, 2)}
