@@ -23,3 +23,13 @@ class ChatRepository:
         await self.session.flush()
         await self.session.refresh(chat_session)
         return chat_session
+
+    async def get_all_for_patient(self, patient_id: str) -> list[ChatSession]:
+        result = await self.session.execute(
+            select(ChatSession).where(ChatSession.patient_id == patient_id).order_by(ChatSession.updated_at.desc())
+        )
+        return list(result.scalars().all())
+
+    async def delete(self, chat_session: ChatSession) -> None:
+        await self.session.delete(chat_session)
+        await self.session.flush()

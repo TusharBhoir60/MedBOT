@@ -119,6 +119,17 @@ export const apiClient = {
     return handleResponse<T>(response);
   },
 
+  async patch<T>(path: string, body?: unknown, options: FetchOptions = {}): Promise<T> {
+    const url = `${API_BASE_URL}${path}`;
+    const response = await fetchWithRetry(url, {
+      ...options,
+      method: "PATCH",
+      headers: getHeaders(options.headers),
+      body: body ? JSON.stringify(body) : undefined,
+    });
+    return handleResponse<T>(response);
+  },
+
   async put<T>(path: string, body?: unknown, options: FetchOptions = {}): Promise<T> {
     const url = `${API_BASE_URL}${path}`;
     const response = await fetchWithRetry(url, {
