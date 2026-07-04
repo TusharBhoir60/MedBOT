@@ -22,11 +22,14 @@ from api.middleware import (
     RequestSizeLimiterMiddleware,
     RequestTimingMiddleware,
     SecurityHeadersMiddleware,
+    RateLimiterMiddleware,
     aarogya_exception_handler,
     unhandled_exception_handler,
 )
 from api.v1.router_health import router as health_router
 from api.v1.router_chat import router as chat_router
+from api.v1.router_review import router as review_router
+from api.v1.router_auth import router as auth_router
 from core.config import settings
 from core.constants import API_V1_STR
 from core.exceptions import AarogyaBaseException
@@ -126,6 +129,10 @@ def create_application() -> FastAPI:
     # So we add them in reverse:
     # ------------------------------------------------------------------ #
     application.add_middleware(SecurityHeadersMiddleware)
+    application.add_middleware(
+        RateLimiterMiddleware,
+        default_limit=settings.security.rate_limit_default,
+    )
     application.add_middleware(RequestTimingMiddleware)
     application.add_middleware(CorrelationIdMiddleware)
     application.add_middleware(
@@ -150,6 +157,8 @@ def create_application() -> FastAPI:
     # ------------------------------------------------------------------ #
     application.include_router(health_router, prefix=API_V1_STR)
     application.include_router(chat_router, prefix=API_V1_STR)
+    application.include_router(review_router, prefix=API_V1_STR)
+    application.include_router(auth_router, prefix=API_V1_STR)
 
     return application
 

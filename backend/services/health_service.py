@@ -11,7 +11,10 @@ This service is responsible for:
 """
 import logging
 import time
+import httpx
 from datetime import datetime, timezone
+import asyncio
+from ai_engine.rag.vector_store import get_vector_store
 
 from core.config import settings
 from core.exceptions import DatabaseException
@@ -91,13 +94,65 @@ class HealthService:
         Checks the process and basic database connectivity.
         """
         logger.debug("Overall health check requested")
+        
+        async def ping_vector_store():
+            start = time.perf_counter()
+            try:
+                # Use loop.run_in_executor since store.retrieve is blocking
+                loop = asyncio.get_running_loop()
+                store = get_vector_store()
+                if store._collection is not None:
+                    await loop.run_in_executor(None, store.retrieve, "health check ping", 1)
+                    elapsed = (time.perf_counter() - start) * 1000
+                    return "healthy", round(elapsed, 2)
+                return "unhealthy", 0.0
+            except Exception:
+                return "unhealthy", round((time.perf_counter() - start) * 1000, 2)
+                
+        async def ping_llm_provider():
+            start = time.perf_counter()
+            try:
+                async with httpx.AsyncClient() as client:
+                    headers = {"Authorization": f"Bearer {settings.ai.openai_api_key}"}
+                    resp = await client.get("https://api.openai.com/v1/models", headers=headers, timeout=settings.ai.health_timeout_seconds)
+                    elapsed = (time.perf_counter() - start) * 1000
+                    return "healthy" if resp.status_code == 200 else "degraded", round(elapsed, 2)
+            except Exception:
+                return "unhealthy", round((time.perf_counter() - start) * 1000, 2)
+
+        # Run DB checks sequentially to avoid SQLAlchemy concurrent session errors
         ping_result = await self._repository.ping_db()
+        queue_result = await self._repository.check_review_queue()
+        
+        # Run external IO checks concurrently
+        vs_future = ping_vector_store()
+        llm_future = ping_llm_provider()
+        
+        (vs_status, vs_latency), (llm_status, llm_latency) = await asyncio.gather(
+            vs_future, llm_future
+        )
+        
         db_status = str(ping_result.get("status", "unknown"))
-        overall_status = "healthy" if db_status == "connected" else "degraded"
+        queue_status = str(queue_result.get("status", "unknown"))
+        queue_latency = float(queue_result.get("latency_ms", 0.0))
+        
+        # Overall status is degraded if any component is unhealthy
+        overall_status = "healthy"
+        if "unhealthy" in [db_status, queue_status, vs_status, llm_status] or "disconnected" in [db_status]:
+            overall_status = "degraded"
+            
         return HealthResponse(
             status=overall_status,
             version=settings.APP_VERSION,
             timestamp=datetime.now(timezone.utc),
+            uptime_seconds=time.monotonic() - _START_TIME,
+            db_status=db_status,
+            vector_store_status=vs_status,
+            vector_store_latency_ms=vs_latency,
+            ai_services_status=llm_status,
+            ai_services_latency_ms=llm_latency,
+            review_queue_status=queue_status,
+            review_queue_latency_ms=queue_latency
         )
 
     async def get_db_health(self) -> HealthDBResponse:

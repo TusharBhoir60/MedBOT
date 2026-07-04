@@ -1,0 +1,38 @@
+{
+  "Baseline A: Rule-based": {
+    "accuracy": 0.68,
+    "f1": 0.8235294117647058,
+    "ece": 0.23199999999999998,
+    "brier_score": 0.05599999999999999,
+    "referral_accuracy": 0.68,
+    "missed_emergency_rate": 0.36666666666666664,
+    "high_confidence_error_rate": 0.0
+  },
+  "Baseline B: LLM-only": {
+    "accuracy": 0.66,
+    "f1": 0.7755102040816327,
+    "ece": 0.07090799999999994,
+    "brier_score": 0.22780579640000004,
+    "referral_accuracy": 0.66,
+    "missed_emergency_rate": 0.3333333333333333,
+    "high_confidence_error_rate": 0.2727272727272727
+  },
+  "Baseline C: RAG-only": {
+    "accuracy": 0.82,
+    "f1": 0.9041095890410958,
+    "ece": 0.042168000000000046,
+    "brier_score": 0.14271559440000003,
+    "referral_accuracy": 0.82,
+    "missed_emergency_rate": 0.2,
+    "high_confidence_error_rate": 0.08
+  },
+  "Baseline D: CMAR + RAG": {
+    "accuracy": 0.9,
+    "f1": 0.9565217391304348,
+    "ece": 0.038461999999999885,
+    "brier_score": 0.08361560620000001,
+    "referral_accuracy": 0.9,
+    "missed_emergency_rate": 0.13333333333333333,
+    "high_confidence_error_rate": 0.1
+  }
+}

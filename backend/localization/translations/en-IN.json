@@ -1,0 +1,13 @@
+{
+    "routine": "routine",
+    "urgent": "urgent",
+    "emergency": "emergency",
+    "dengue": "dengue",
+    "malaria": "malaria",
+    "hypertension": "hypertension",
+    "anemia": "anemia",
+    "Seek medical consultation within 24 hours.": "Seek medical consultation within 24 hours.",
+    "Rest completely for at least 5-7 days.": "Rest completely for at least 5-7 days.",
+    "No specific guidelines were retrieved": "No specific guidelines were retrieved",
+    "The most likely diagnosis is": "The most likely diagnosis is"
+}

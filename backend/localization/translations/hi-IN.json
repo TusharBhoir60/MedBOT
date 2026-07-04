@@ -1,0 +1,13 @@
+{
+    "routine": "सामान्य",
+    "urgent": "तत्काल",
+    "emergency": "आपातकालीन",
+    "dengue": "डेंगू",
+    "malaria": "मलेरिया",
+    "hypertension": "उच्च रक्तचाप",
+    "anemia": "एनीमिया",
+    "Seek medical consultation within 24 hours.": "24 घंटे के भीतर चिकित्सा परामर्श लें।",
+    "Rest completely for at least 5-7 days.": "कम से कम 5-7 दिनों तक पूरी तरह आराम करें।",
+    "No specific guidelines were retrieved": "कोई विशिष्ट दिशानिर्देश प्राप्त नहीं हुए",
+    "The most likely diagnosis is": "सबसे संभावित निदान है"
+}

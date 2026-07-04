@@ -8,13 +8,15 @@ citations and per-component confidence scores.
 import logging
 from typing import Any, Dict, List, Optional
 
-from langchain_openai import ChatOpenAI
+from langchain_core.language_models.chat_models import BaseChatModel
 from pydantic import BaseModel, Field
+from core.config import settings
+from ai_engine.providers import get_llm_provider
 
 from ai_engine.interfaces import AgentInterface
 from ai_engine.rag.vector_store import get_vector_store
 from ai_engine.state import ConfidenceSchema, SharedState
-from core.config import settings
+from ai_engine.prompts.registry import DIAGNOSIS_PROMPT
 
 logger = logging.getLogger(__name__)
 
@@ -70,8 +72,8 @@ class LLMDiagnosisExtraction(BaseModel):
 class DiagnosisAgent(AgentInterface):
     """RAG-powered agent that produces differential diagnoses with citations."""
 
-    def __init__(self, llm: Optional[ChatOpenAI] = None) -> None:
-        self.llm = llm or ChatOpenAI(model="gpt-4o", temperature=0.2)
+    def __init__(self, llm: Optional[BaseChatModel] = None) -> None:
+        self.llm = llm or get_llm_provider(model_name=settings.ai.model_primary, temperature=0.2)
         self.structured_llm = self.llm.with_structured_output(LLMDiagnosisExtraction)
         self.vector_store = get_vector_store()
 
@@ -215,26 +217,13 @@ class DiagnosisAgent(AgentInterface):
         extracted_symptoms: Dict[str, Any],
     ) -> LLMDiagnosisExtraction:
         """Prompt the LLM with retrieved evidence and patient state."""
-        prompt = f"""
-You are a senior clinical triage assistant. Using the retrieved medical
-evidence and the patient's profile, produce a differential diagnosis.
-
---- PATIENT PROFILE ---
-{patient_info}
-
---- EXTRACTED SYMPTOMS ---
-{extracted_symptoms}
-
---- RETRIEVED MEDICAL EVIDENCE ---
-{context if context else "No evidence retrieved. Rely on parametric knowledge only."}
-
-Provide:
-1. The most likely primary diagnosis.
-2. A ranked list of differential diagnoses.
-3. An urgency level (routine / urgent / emergency).
-4. Step-by-step clinical reasoning.
-5. Your self-assessed confidence (0.0–1.0).
-"""
+        context_final = context if context else "No evidence retrieved. Rely on parametric knowledge only."
+        prompt = DIAGNOSIS_PROMPT.format(
+            patient_info=patient_info,
+            extracted_symptoms=extracted_symptoms,
+            context=context_final
+        )
+        
         extraction: LLMDiagnosisExtraction = await self.structured_llm.ainvoke(prompt)  # type: ignore
         return extraction
 

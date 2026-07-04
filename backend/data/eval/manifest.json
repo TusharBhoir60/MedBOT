@@ -1,0 +1,10 @@
+{
+  "versions": {
+    "v1": {
+      "path": "v1/mock_dataset.json",
+      "format": "json",
+      "description": "Mock dataset containing 50 synthetic patient cases for Sprint 4."
+    }
+  },
+  "latest": "v1"
+}

@@ -5,11 +5,11 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class DatabaseSettings(BaseSettings):
     url: str = Field(
-        default="postgresql+asyncpg://postgres:postgres@localhost:5432/aarogya",
+        default="sqlite+aiosqlite:///./test.db",
         validation_alias="DATABASE_URL"
     )
     sync_url: str = Field(
-        default="postgresql+psycopg2://postgres:postgres@localhost:5432/aarogya",
+        default="sqlite:///./test.db",
         validation_alias="SYNC_DATABASE_URL"
     )
     pool_size: int = Field(default=10, validation_alias="DB_POOL_SIZE")
@@ -22,8 +22,16 @@ class LoggingSettings(BaseSettings):
 
 class SecuritySettings(BaseSettings):
     allowed_hosts: List[str] = Field(default=["*"])
-    allowed_origins: List[str] = Field(default=["*"])
-    max_request_size: int = Field(default=10485760, validation_alias="MAX_REQUEST_SIZE")  # 10MB default
+    allowed_origins: List[str] = Field(default=["http://localhost:3000"])
+    max_request_size: int = Field(default=5242880, validation_alias="MAX_REQUEST_SIZE")  # 5MB default
+    
+    # JWT Authentication
+    secret_key: str = Field(default="dev-secret-key-change-in-prod", validation_alias="SECRET_KEY")
+    algorithm: str = Field(default="HS256", validation_alias="JWT_ALGORITHM")
+    access_token_expire_minutes: int = Field(default=60, validation_alias="ACCESS_TOKEN_EXPIRE_MINUTES")
+    
+    # Rate Limiting Defaults
+    rate_limit_default: int = Field(default=100, description="Default requests per minute", validation_alias="RATE_LIMIT_DEFAULT")
 
     @model_validator(mode="before")
     @classmethod
@@ -35,6 +43,11 @@ class SecuritySettings(BaseSettings):
         return data
 
 class AIWorkflowSettings(BaseSettings):
+    openai_api_key: str = Field(default="mock-key-for-tests", validation_alias="OPENAI_API_KEY")
+    model_primary: str = Field(default="gpt-4o", validation_alias="OPENAI_MODEL_PRIMARY")
+    model_fast: str = Field(default="gpt-4o-mini", validation_alias="OPENAI_MODEL_FAST")
+    health_timeout_seconds: float = Field(default=5.0, validation_alias="HEALTH_TIMEOUT_SECONDS")
+    
     confidence_high: float = Field(default=0.85, validation_alias="CONFIDENCE_HIGH")
     confidence_medium: float = Field(default=0.70, validation_alias="CONFIDENCE_MEDIUM")
     confidence_low: float = Field(default=0.50, validation_alias="CONFIDENCE_LOW")
@@ -79,6 +92,11 @@ class Settings(BaseSettings):
             if "*" in self.security.allowed_hosts:
                 # Issue warning in production, but let settings parse
                 pass
+            # Fail-fast validations for production
+            if self.security.secret_key == "dev-secret-key-change-in-prod":
+                raise ValueError("SECRET_KEY must be configured in production environment")
+            if "localhost" in self.db.url or "localhost" in self.db.sync_url:
+                raise ValueError("Production database URL should not point to localhost")
         elif self.APP_ENV == "development":
             self.APP_DEBUG = True
             self.db.echo = True

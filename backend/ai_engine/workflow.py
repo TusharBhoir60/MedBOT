@@ -10,6 +10,9 @@ from ai_engine.agents.followup_agent import FollowUpAgent
 from ai_engine.agents.diagnosis_agent import DiagnosisAgent
 from ai_engine.nodes.confidence_aggregator import aggregate_confidence
 from ai_engine.nodes.confidence_check import evaluate_confidence
+from ai_engine.orchestrator.patient_response_builder import build_patient_response
+from database.engine import async_session_factory
+from models.review import ReviewTask
 
 def create_workflow() -> StateGraph:
     """
@@ -38,7 +41,17 @@ def create_workflow() -> StateGraph:
         return await diagnosis_agent.invoke(state)
         
     async def run_handoff(state: SharedState):
-        # Stub for human handoff
+        """Human Handoff Node: Saves task to Review Queue Database"""
+        async with async_session_factory() as session:
+            task = ReviewTask(
+                session_id=state.get("session_id"),
+                patient_info=state.get("patient_info", {}),
+                symptoms=state.get("symptoms", []),
+                diagnosis_output=state.get("diagnosis_output", {})
+            )
+            session.add(task)
+            await session.commit()
+            
         return {"next_step": "end"}
         
     # Add nodes
@@ -49,6 +62,7 @@ def create_workflow() -> StateGraph:
     workflow.add_node("diagnosis", run_diagnosis)
     workflow.add_node("followup", run_followup)
     workflow.add_node("handoff", run_handoff)
+    workflow.add_node("patient_response_builder", build_patient_response)
     
     # Main Pipeline Edges
     workflow.add_edge(START, "intake")
@@ -70,10 +84,12 @@ def create_workflow() -> StateGraph:
         }
     )
     
-    # Terminal Edges
-    workflow.add_edge("diagnosis", END)
-    workflow.add_edge("followup", END)
-    workflow.add_edge("handoff", END)
+    # Terminal Edges - Route everything through the response builder
+    workflow.add_edge("diagnosis", "patient_response_builder")
+    workflow.add_edge("followup", "patient_response_builder")
+    workflow.add_edge("handoff", "patient_response_builder")
+    
+    workflow.add_edge("patient_response_builder", END)
     
     return workflow.compile()
 
