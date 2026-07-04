@@ -5,7 +5,6 @@ import {
   useContext,
   useEffect,
   useState,
-  useCallback,
   ReactNode,
 } from "react";
 import { setTokenProvider } from "@/lib/api-client";
@@ -56,6 +55,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (stored) {
       const user = decodeTokenPayload(stored);
       if (user) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setState({ isAuthenticated: true, user, token: stored, isLoading: false });
         setTokenProvider(() => stored);
         return;
@@ -69,29 +69,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setTokenProvider(() => state.token);
   }, [state.token]);
 
+  const login = (token: string, user: AuthUser) => {
+    localStorage.setItem(TOKEN_KEY, token);
+    setState({ isAuthenticated: true, user, token, isLoading: false });
+  };
+
+  const logout = () => {
+    localStorage.removeItem(TOKEN_KEY);
+    setState({ isAuthenticated: false, user: null, token: null, isLoading: false });
+  };
+
   // Listen for 401 events dispatched by api-client
   useEffect(() => {
     const handler = () => logout();
     window.addEventListener("auth:unauthorized", handler);
     return () => window.removeEventListener("auth:unauthorized", handler);
-  });
-
-  const login = useCallback((token: string, user: AuthUser) => {
-    localStorage.setItem(TOKEN_KEY, token);
-    setState({ isAuthenticated: true, user, token, isLoading: false });
   }, []);
 
-  const logout = useCallback(() => {
-    localStorage.removeItem(TOKEN_KEY);
-    setState({ isAuthenticated: false, user: null, token: null, isLoading: false });
-  }, []);
-
-  const hasRole = useCallback(
-    (role: string) => {
-      return state.user?.roles?.includes(role) || state.user?.roles?.includes("admin") || false;
-    },
-    [state.user]
-  );
+  const hasRole = (role: string) => {
+    return state.user?.roles?.includes(role) || state.user?.roles?.includes("admin") || false;
+  };
 
   return (
     <AuthContext.Provider value={{ ...state, login, logout, hasRole }}>

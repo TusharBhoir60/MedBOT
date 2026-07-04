@@ -34,7 +34,9 @@ interface FetchOptions extends RequestInit {
 }
 
 async function fetchWithRetry(url: string, options: FetchOptions): Promise<Response> {
-  let { retries = 1, ...fetchOptions } = options;
+  let retries = options.retries ?? 1;
+  const fetchOptions = { ...options };
+  delete fetchOptions.retries;
   let response: Response | undefined;
   
   while (retries >= 0) {

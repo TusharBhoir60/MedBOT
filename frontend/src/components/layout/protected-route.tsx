@@ -32,13 +32,10 @@ export function ProtectedRoute({ children, requiredRole, fallback }: ProtectedRo
   if (!isAuthenticated) return null;
 
   if (requiredRole && !hasRole(requiredRole)) {
-    return (
-      fallback ?? (
-        <div className="flex h-screen items-center justify-center">
-          <p className="text-muted-foreground text-sm">You do not have permission to view this page.</p>
-        </div>
-      )
-    );
+    if (fallback) return fallback;
+    
+    router.replace("/unauthorized");
+    return null;
   }
 
   return <>{children}</>;
