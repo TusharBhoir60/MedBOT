@@ -35,8 +35,9 @@ export default function LoginPage() {
         roles: ["physician"], // Simplified for mock; real payload decoded in AuthProvider
       });
       router.push(ROUTES.dashboard);
-    } catch (err: any) {
-      setServerError(err?.message || "Invalid credentials. Please try again.");
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Invalid credentials. Please try again.";
+      setServerError(msg);
     }
   };
 

@@ -58,10 +58,13 @@ function Section({
 
 export const AIResponseCard = memo(function AIResponseCard({ response, className }: AIResponseCardProps) {
   const conditions = response.possible_conditions ?? [];
-  const analysis = response.analysis ?? {};
-  const confidenceScores = response.confidence_scores ?? {};
-  const isEscalated = response.escalation_decision;
   const nextStep = response.next_step;
+  const isEscalated = response.escalation_decision;
+  const rawAnalysis = response.analysis;
+  const rawConfidenceScores = response.confidence_scores;
+
+  const analysis = useMemo(() => rawAnalysis ?? {}, [rawAnalysis]);
+  const confidenceScores = useMemo(() => rawConfidenceScores ?? {}, [rawConfidenceScores]);
 
   // Extract an overall confidence from the combined or highest score
   const overallConf = useMemo(() => {

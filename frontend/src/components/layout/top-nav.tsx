@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bell, Sun, Moon, Menu, ChevronRight, LogOut, Settings, User } from "lucide-react";
+import { Bell, Sun, Moon, Menu, ChevronRight, LogOut, Settings } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useAuth } from "@/providers/auth-provider";
 import { cn } from "@/lib/utils";

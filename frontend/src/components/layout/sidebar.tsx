@@ -8,8 +8,6 @@ import { ROUTES } from "@/constants/routes";
 import {
   LayoutDashboard,
   MessageSquareHeart,
-  Settings,
-  LogOut,
   ChevronRight,
   Activity,
   ListTodo,
@@ -42,7 +40,7 @@ interface SidebarProps {
 
 export function Sidebar({ role, className, onNavigate }: SidebarProps) {
   const pathname = usePathname();
-  const { logout, user } = useAuth();
+  const { user } = useAuth();
   
   let items: NavItem[] = patientNavItems;
   if (role === ROLES.physician) items = physicianNavItems;

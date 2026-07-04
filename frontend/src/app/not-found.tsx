@@ -12,7 +12,7 @@ export default function NotFound() {
       </div>
       <h1 className="text-3xl font-bold tracking-tight mb-2">Page Not Found</h1>
       <p className="text-muted-foreground max-w-md mb-8">
-        We couldn't find the page you're looking for. It might have been moved or doesn't exist.
+        We couldn&apos;t find the page you&apos;re looking for. It might have been moved or doesn&apos;t exist.
       </p>
       <Link
         href={ROUTES.home}

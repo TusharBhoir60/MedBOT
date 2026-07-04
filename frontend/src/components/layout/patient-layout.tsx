@@ -4,7 +4,6 @@ import { Sidebar } from "@/components/layout/sidebar";
 import { TopNav } from "@/components/layout/top-nav";
 import { ProtectedRoute } from "@/components/layout/protected-route";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
 
 export function PatientLayout({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

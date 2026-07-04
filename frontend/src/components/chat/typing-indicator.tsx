@@ -2,18 +2,6 @@
 
 import { motion } from "framer-motion";
 
-const DOT_VARIANTS = {
-  animate: (i: number) => ({
-    y: [0, -6, 0],
-    transition: {
-      duration: 0.8,
-      delay: i * 0.15,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  }),
-};
-
 export function TypingIndicator() {
   return (
     <div className="flex items-end gap-3 px-1">
@@ -27,9 +15,13 @@ export function TypingIndicator() {
         {[0, 1, 2].map((i) => (
           <motion.span
             key={i}
-            custom={i}
-            variants={DOT_VARIANTS}
-            animate="animate"
+            animate={{ y: [0, -6, 0] }}
+            transition={{
+              duration: 0.8,
+              delay: i * 0.15,
+              repeat: Infinity,
+              ease: "easeInOut" as const,
+            }}
             className="h-2 w-2 rounded-full bg-primary/60"
           />
         ))}
