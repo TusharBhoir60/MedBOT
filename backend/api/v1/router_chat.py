@@ -4,13 +4,15 @@ Chat router exposing the LangGraph CMAR workflow.
 import logging
 from typing import Any, Dict
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel, Field
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 
 from ai_engine.workflow import app as chat_workflow
 from ai_engine.safety.response_validator import SafetyViolation
-from api.dependencies import ChatServiceDep
+from api.dependencies import ChatServiceDep, get_current_user
+from schemas.chat_history import ConversationSummaryResponse, ConversationDetailResponse, ConversationRenameRequest
+from typing import List
 import copy
 
 logger = logging.getLogger(__name__)
@@ -98,3 +100,100 @@ async def invoke_chat(
     except Exception as e:
         logger.error(f"Error during workflow execution: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail="Internal AI Engine Error")
+
+@router.get("/history", response_model=List[ConversationSummaryResponse])
+async def get_chat_history(
+    chat_service: ChatServiceDep,
+    current_user: Dict[str, Any] = Depends(get_current_user)
+):
+    """Get a list of all chat sessions for the current user."""
+    patient_id = current_user.get("sub")
+    sessions = await chat_service.get_all_sessions(patient_id=patient_id)
+    
+    summaries = []
+    for session in sessions:
+        # Extract a preview from the last message in state
+        preview = None
+        messages = session.state.get("messages", []) if session.state else []
+        if messages:
+            last_msg = messages[-1]
+            if isinstance(last_msg, dict):
+                preview = last_msg.get("content")
+            elif hasattr(last_msg, "content"):
+                preview = last_msg.content
+        
+        if preview and len(preview) > 100:
+            preview = preview[:97] + "..."
+            
+        summaries.append(ConversationSummaryResponse(
+            session_id=session.session_id,
+            title=session.title,
+            is_archived=session.is_archived,
+            updated_at=session.updated_at,
+            created_at=session.created_at,
+            last_message_preview=preview,
+            message_count=len(messages)
+        ))
+    return summaries
+
+@router.get("/history/{session_id}", response_model=ConversationDetailResponse)
+async def get_chat_session(
+    session_id: str,
+    chat_service: ChatServiceDep,
+    current_user: Dict[str, Any] = Depends(get_current_user)
+):
+    """Get the full details and state of a specific chat session."""
+    session = await chat_service.get_session(session_id)
+    if not session or session.patient_id != current_user.get("sub"):
+        raise HTTPException(status_code=404, detail="Conversation not found")
+        
+    return ConversationDetailResponse(
+        session_id=session.session_id,
+        title=session.title,
+        is_archived=session.is_archived,
+        updated_at=session.updated_at,
+        created_at=session.created_at,
+        state=session.state
+    )
+
+@router.delete("/history/{session_id}", status_code=204)
+async def delete_chat_session(
+    session_id: str,
+    chat_service: ChatServiceDep,
+    current_user: Dict[str, Any] = Depends(get_current_user)
+):
+    """Delete a chat session."""
+    session = await chat_service.get_session(session_id)
+    if not session or session.patient_id != current_user.get("sub"):
+        raise HTTPException(status_code=404, detail="Conversation not found")
+        
+    await chat_service.delete_session(session_id)
+
+@router.patch("/history/{session_id}", status_code=200)
+async def rename_chat_session(
+    session_id: str,
+    request: ConversationRenameRequest,
+    chat_service: ChatServiceDep,
+    current_user: Dict[str, Any] = Depends(get_current_user)
+):
+    """Rename a chat session."""
+    session = await chat_service.get_session(session_id)
+    if not session or session.patient_id != current_user.get("sub"):
+        raise HTTPException(status_code=404, detail="Conversation not found")
+        
+    await chat_service.rename_session(session_id, request.title)
+    return {"status": "success"}
+
+@router.post("/history/{session_id}/archive", status_code=200)
+async def archive_chat_session(
+    session_id: str,
+    chat_service: ChatServiceDep,
+    current_user: Dict[str, Any] = Depends(get_current_user)
+):
+    """Archive a chat session."""
+    session = await chat_service.get_session(session_id)
+    if not session or session.patient_id != current_user.get("sub"):
+        raise HTTPException(status_code=404, detail="Conversation not found")
+        
+    await chat_service.archive_session(session_id)
+    return {"status": "success"}
