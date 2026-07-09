@@ -18,6 +18,8 @@ from services.health_service import HealthService
 from core.security.jwt import auth_provider
 from repositories.chat_repository import ChatRepository
 from services.chat_service import ChatService
+from repositories.metrics_repository import MetricsRepository
+from services.metrics_service import MetricsService
 
 logger = logging.getLogger(__name__)
 
@@ -51,6 +53,19 @@ def get_chat_service(
     return ChatService(repository=repository)
 
 ChatServiceDep = Annotated[ChatService, Depends(get_chat_service)]
+
+def get_metrics_repository(session: DatabaseSession) -> MetricsRepository:
+    """Construct a MetricsRepository with the request-scoped DB session."""
+    return MetricsRepository(session=session)
+
+def get_metrics_service(
+    repository: Annotated[MetricsRepository, Depends(get_metrics_repository)],
+    health_service: HealthServiceDep,
+) -> MetricsService:
+    """Construct a MetricsService with its MetricsRepository and HealthService dependencies."""
+    return MetricsService(metrics_repository=repository, health_service=health_service)
+
+MetricsServiceDep = Annotated[MetricsService, Depends(get_metrics_service)]
 
 security = HTTPBearer()
 

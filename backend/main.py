@@ -30,6 +30,7 @@ from api.v1.router_health import router as health_router
 from api.v1.router_chat import router as chat_router
 from api.v1.router_review import router as review_router
 from api.v1.router_auth import router as auth_router
+from api.v1.router_metrics import router as metrics_router
 from core.config import settings
 from core.constants import API_V1_STR
 from core.exceptions import AarogyaBaseException
@@ -159,6 +160,7 @@ def create_application() -> FastAPI:
     application.include_router(chat_router, prefix=API_V1_STR)
     application.include_router(review_router, prefix=API_V1_STR)
     application.include_router(auth_router, prefix=API_V1_STR)
+    application.include_router(metrics_router, prefix=API_V1_STR)
 
     return application
 
