@@ -13,15 +13,23 @@ import {
   ListTodo,
   BarChart3,
   ShieldAlert,
+  Brain,
+  ClipboardList,
+  Server,
+  Radio,
 } from "lucide-react";
 import { ROLES } from "@/constants/roles";
 
-type NavItem = { href: string; label: string; icon: React.ElementType };
+type NavItem = { href: string; label: string; icon: React.ElementType; group?: string };
 
 const physicianNavItems: NavItem[] = [
-  { href: ROUTES.dashboard, label: "Dashboard", icon: LayoutDashboard },
-  { href: "/dashboard/tasks", label: "Review Queue", icon: ListTodo },
-  { href: "/dashboard/analytics", label: "Analytics", icon: BarChart3 },
+  { href: ROUTES.dashboard, label: "Dashboard", icon: LayoutDashboard, group: "General" },
+  { href: "/dashboard/tasks", label: "Review Queue", icon: ListTodo, group: "General" },
+  { href: ROUTES.analytics, label: "Analytics", icon: BarChart3, group: "Analytics" },
+  { href: ROUTES.analyticsPerformance, label: "AI Performance", icon: Brain, group: "Analytics" },
+  { href: ROUTES.analyticsReview, label: "Review Analytics", icon: ClipboardList, group: "Analytics" },
+  { href: ROUTES.systemHealth, label: "System Health", icon: Server, group: "Operations" },
+  { href: ROUTES.observability, label: "Operational Activity", icon: Radio, group: "Operations" },
 ];
 
 const patientNavItems: NavItem[] = [
@@ -41,10 +49,20 @@ interface SidebarProps {
 export function Sidebar({ role, className, onNavigate }: SidebarProps) {
   const pathname = usePathname();
   const { user } = useAuth();
-  
+
   let items: NavItem[] = patientNavItems;
   if (role === ROLES.physician) items = physicianNavItems;
   if (role === ROLES.admin) items = adminNavItems;
+
+  // Group items by group label
+  const grouped = items.reduce<Record<string, NavItem[]>>((acc, item) => {
+    const key = item.group ?? "__ungrouped__";
+    if (!acc[key]) acc[key] = [];
+    acc[key].push(item);
+    return acc;
+  }, {});
+
+  const groupOrder = ["General", "Analytics", "Operations", "__ungrouped__"];
 
   return (
     <aside className={cn("flex h-full w-60 flex-col border-r border-border bg-sidebar", className)}>
@@ -56,25 +74,44 @@ export function Sidebar({ role, className, onNavigate }: SidebarProps) {
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 space-y-0.5 p-2 overflow-y-auto">
-        {items.map(({ href, label, icon: Icon }) => {
-          const isActive = pathname === href || pathname.startsWith(href + "/");
+      <nav className="flex-1 space-y-0.5 p-2 overflow-y-auto" aria-label="Main navigation">
+        {groupOrder.map((groupKey) => {
+          const groupItems = grouped[groupKey];
+          if (!groupItems?.length) return null;
+
           return (
-            <Link
-              key={href}
-              href={href}
-              onClick={onNavigate}
-              className={cn(
-                "flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors",
-                isActive
-                  ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
-                  : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            <div key={groupKey} className="mb-2">
+              {groupKey !== "__ungrouped__" && (
+                <p className="px-3 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground/60">
+                  {groupKey}
+                </p>
               )}
-            >
-              <Icon className="h-4 w-4 shrink-0" />
-              <span>{label}</span>
-              {isActive && <ChevronRight className="ml-auto h-3 w-3 opacity-50" />}
-            </Link>
+              {groupItems.map(({ href, label, icon: Icon }) => {
+                // Exact match for top-level routes; prefix match for nested
+                const isActive =
+                  href === ROUTES.analytics
+                    ? pathname === href
+                    : pathname === href || pathname.startsWith(href + "/");
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    onClick={onNavigate}
+                    aria-current={isActive ? "page" : undefined}
+                    className={cn(
+                      "flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors",
+                      isActive
+                        ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+                        : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                    )}
+                  >
+                    <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
+                    <span>{label}</span>
+                    {isActive && <ChevronRight className="ml-auto h-3 w-3 opacity-50" />}
+                  </Link>
+                );
+              })}
+            </div>
           );
         })}
       </nav>
