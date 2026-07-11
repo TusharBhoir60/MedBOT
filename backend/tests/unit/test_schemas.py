@@ -139,9 +139,11 @@ class TestHealthResponse:
             status="healthy",
             version="0.1.0",
             timestamp=datetime.now(timezone.utc),
+            uptime_seconds=123.45,
         )
         assert response.status == "healthy"
         assert response.version == "0.1.0"
+        assert response.uptime_seconds == 123.45
 
 
 class TestHealthDBResponse:

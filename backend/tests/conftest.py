@@ -71,17 +71,31 @@ async def setup_schema() -> AsyncGenerator[None, None]:
 
 # ── Function-scoped: per-test transaction isolation ──────────────────────────
 @pytest_asyncio.fixture
-async def db_session(setup_schema: Any) -> AsyncGenerator[AsyncSession, None]:
+async def db_session(setup_schema: Any, monkeypatch: pytest.MonkeyPatch) -> AsyncGenerator[AsyncSession, None]:
     """Yield an AsyncSession that rolls back all mutations after each test.
 
     The SAVEPOINT pattern ensures application-level session.commit() calls
     are absorbed by the nested transaction and never committed to disk.
+    It also monkeypatches async_session_factory globally so standalone code
+    (like LangGraph nodes) shares the test transaction, avoiding SQLite locks.
     """
+    from contextlib import asynccontextmanager
+
     connection: AsyncConnection = await test_engine.connect()
     await connection.begin()  # Root transaction
 
     session = AsyncSession(bind=connection, expire_on_commit=False)
     await session.begin_nested()  # SAVEPOINT
+
+    @asynccontextmanager
+    async def mock_factory():
+        yield session
+
+    import ai_engine.workflow
+    import database.session
+    monkeypatch.setattr(database.session, "async_session_factory", mock_factory)
+    if hasattr(ai_engine.workflow, "async_session_factory"):
+        monkeypatch.setattr(ai_engine.workflow, "async_session_factory", mock_factory)
 
     yield session
 
