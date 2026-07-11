@@ -69,8 +69,33 @@ async def test_health_ready_returns_503_when_db_disconnected(client: AsyncClient
 
 
 @pytest.mark.asyncio
-async def test_health_overall_returns_200_when_db_connected(client: AsyncClient) -> None:
-    """The overall health endpoint should return 200 OK when DB is reachable."""
+async def test_health_overall_returns_200_when_db_connected(
+    client: AsyncClient, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """The overall health endpoint should return 200 OK when DB is reachable.
+
+    External service checks (OpenAI, vector store) are mocked so the test
+    is not coupled to external network availability or API credentials.
+    """
+    import httpx
+    from unittest.mock import AsyncMock, MagicMock
+    import ai_engine.rag.vector_store as vs_module
+
+    # Mock the vector store to simulate a healthy collection
+    mock_store = MagicMock()
+    mock_store._collection = MagicMock()  # truthy — triggers the retrieve path
+    mock_store.retrieve = MagicMock(return_value=[])
+    monkeypatch.setattr(vs_module, "get_vector_store", lambda: mock_store)
+
+    # Mock httpx so we never actually call OpenAI
+    mock_response = MagicMock()
+    mock_response.status_code = 200
+    mock_async_client = MagicMock()
+    mock_async_client.__aenter__ = AsyncMock(return_value=mock_async_client)
+    mock_async_client.__aexit__ = AsyncMock(return_value=None)
+    mock_async_client.get = AsyncMock(return_value=mock_response)
+    monkeypatch.setattr(httpx, "AsyncClient", lambda: mock_async_client)
+
     response = await client.get("/api/v1/health")
 
     assert response.status_code == 200

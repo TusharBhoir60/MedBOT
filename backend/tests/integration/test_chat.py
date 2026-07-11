@@ -17,65 +17,66 @@ async def test_chat_invoke_workflow_integration(client: AsyncClient):
          patch("ai_engine.agents.symptom_agent.SymptomAgent.invoke", new_callable=AsyncMock) as mock_symptom, \
          patch("ai_engine.agents.diagnosis_agent.DiagnosisAgent.invoke", new_callable=AsyncMock) as mock_diagnosis:
 
-        # Mock intake agent to return high confidence (requires no followup)
-        mock_intake.return_value = {
-            "confidence_scores": {
-                "intake": ConfidenceSchema(
-                    score=0.95,
-                    source="intake",
-                    reasoning="High quality intake message",
-                    requires_followup=False,
-                    requires_human=False
-                )
-            }
-        }
+        async def intake_side_effect(state):
+            scores = state.get("confidence_scores", {})
+            scores["intake"] = ConfidenceSchema(
+                score=0.95,
+                source="intake",
+                reasoning="High quality intake message",
+                requires_followup=False,
+                requires_human=False
+            )
+            return {"confidence_scores": scores}
+        mock_intake.side_effect = intake_side_effect
 
-        # Mock symptom agent to return normalized symptoms and high confidence
-        mock_symptom.return_value = {
-            "extracted_symptoms": ["fever", "rash"],
-            "possible_conditions": ["Dengue Fever"],
-            "analysis": {"summary": "High fever, retro-orbital pain, likely Dengue."},
-            "confidence_scores": {
-                "symptom_analysis": ConfidenceSchema(
-                    score=0.90,
-                    source="symptom_analysis",
-                    reasoning="Clear symptoms matched",
-                    requires_followup=False,
-                    requires_human=False
-                )
+        async def symptom_side_effect(state):
+            scores = state.get("confidence_scores", {})
+            scores["symptom_analysis"] = ConfidenceSchema(
+                score=0.90,
+                source="symptom_analysis",
+                reasoning="Clear symptoms matched",
+                requires_followup=False,
+                requires_human=False
+            )
+            return {
+                "extracted_symptoms": ["fever", "rash"],
+                "possible_conditions": ["Dengue Fever"],
+                "analysis": {"summary": "High fever, retro-orbital pain, likely Dengue."},
+                "confidence_scores": scores
             }
-        }
+        mock_symptom.side_effect = symptom_side_effect
 
-        # Mock diagnosis agent to return diagnosis output and confidence
-        mock_diagnosis.return_value = {
-            "diagnosis_output": {
-                "primary_diagnosis": "Dengue Fever",
-                "differential_diagnoses": ["Malaria"],
-                "urgency_level": "urgent",
-                "reasoning": "Fever and rash in tropical area.",
+        async def diagnosis_side_effect(state):
+            scores = state.get("confidence_scores", {})
+            scores["retrieval"] = ConfidenceSchema(
+                score=0.85,
+                source="retrieval",
+                reasoning="Retrieval results relevant",
+                requires_followup=False,
+                requires_human=False
+            )
+            scores["diagnosis"] = ConfidenceSchema(
+                score=0.90,
+                source="diagnosis",
+                reasoning="Clinical reasoning aligns",
+                requires_followup=False,
+                requires_human=False
+            )
+            return {
+                "diagnosis_output": {
+                    "primary_diagnosis": "Dengue Fever",
+                    "differential_diagnoses": ["Malaria"],
+                    "urgency_level": "urgent",
+                    "reasoning": "Fever and rash in tropical area.",
+                    "citations": ["WHO Dengue Guideline"],
+                    "retrieval_confidence": 0.85,
+                    "diagnosis_confidence": 0.90,
+                },
+                "possible_conditions": ["Dengue Fever", "Malaria"],
                 "citations": ["WHO Dengue Guideline"],
-                "retrieval_confidence": 0.85,
-                "diagnosis_confidence": 0.90,
-            },
-            "possible_conditions": ["Dengue Fever", "Malaria"],
-            "citations": ["WHO Dengue Guideline"],
-            "confidence_scores": {
-                "retrieval": ConfidenceSchema(
-                    score=0.85,
-                    source="retrieval",
-                    reasoning="Retrieval results relevant",
-                    requires_followup=False,
-                    requires_human=False
-                ),
-                "diagnosis": ConfidenceSchema(
-                    score=0.90,
-                    source="diagnosis",
-                    reasoning="Clinical reasoning aligns",
-                    requires_followup=False,
-                    requires_human=False
-                )
+                "confidence_scores": scores
             }
-        }
+        mock_diagnosis.side_effect = diagnosis_side_effect
 
         # Payload for new session
         payload = {

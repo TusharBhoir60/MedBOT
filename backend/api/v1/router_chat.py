@@ -55,6 +55,15 @@ async def invoke_chat(
                 else:
                     msgs.append(m)
             current_state["messages"] = msgs
+
+            # Deserialize confidence scores from DB dicts back to Pydantic models
+            if "confidence_scores" in current_state:
+                from ai_engine.state import ConfidenceSchema
+                current_state["confidence_scores"] = {
+                    k: (ConfidenceSchema(**v) if isinstance(v, dict) else v)
+                    for k, v in current_state["confidence_scores"].items()
+                }
+
             current_state["messages"].append(HumanMessage(content=request.message))
             
             # Update any explicitly provided new info
@@ -81,17 +90,26 @@ async def invoke_chat(
         # Invoke the LangGraph workflow
         final_state = await chat_workflow.ainvoke(current_state)
         
-        # We must serialize the state to JSON before storing
+        # We must serialize the state to JSON before storing.
+        # LangGraph state can contain Pydantic models (e.g. ConfidenceSchema)
+        # that are not natively JSON-serializable by SQLAlchemy's JSON type.
         state_to_store = copy.deepcopy(final_state)
         if "messages" in state_to_store:
             state_to_store["messages"] = [
                 {"role": m.type, "content": m.content} if hasattr(m, "type") else m
                 for m in state_to_store["messages"]
             ]
-            
+
+        # Serialize any Pydantic models in confidence_scores to plain dicts
+        if "confidence_scores" in state_to_store:
+            state_to_store["confidence_scores"] = {
+                k: (v.model_dump() if isinstance(v, BaseModel) else v)
+                for k, v in state_to_store["confidence_scores"].items()
+            }
+
         # Persist session
         await chat_service.save_session_state(session_id, state_to_store)
-        
+
         return state_to_store
         
     except SafetyViolation as sv:
