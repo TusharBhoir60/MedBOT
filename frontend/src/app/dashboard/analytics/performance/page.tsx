@@ -1,5 +1,4 @@
 "use client";
-import type { ValueType } from "recharts/types/component/DefaultTooltipContent";
 
 import { useQueryClient } from "@tanstack/react-query";
 import { PhysicianLayout } from "@/components/layout/physician-layout";
@@ -57,12 +56,20 @@ function DistributionChart({ filters }: { filters: MetricsFilters }) {
   if (isError) return <ChartErrorState error={error} onRetry={refetch} />;
   if (!data || data.distribution.length === 0) return <ChartEmptyState description="No confidence distribution data for this period." />;
 
+  const chartData = data.distribution.map(d => ({
+    range: `[${d.minimum.toFixed(1)}, ${d.maximum.toFixed(1)}${d.maximum === 1.0 ? ']' : ')'}`,
+    count: d.count,
+  }));
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const formatTooltip = (val: any) => [typeof val === 'number' ? `${val.toLocaleString()}` : val, "Cases"];
+
   return (
     <ResponsiveContainer width="100%" height={300}>
-      <BarChart data={data.distribution} aria-label="Confidence score distribution histogram">
+      <BarChart data={chartData} aria-label="Confidence score distribution histogram">
         <XAxis dataKey="range" tick={{ fontSize: 11 }} />
         <YAxis tick={{ fontSize: 11 }} allowDecimals={false} />
-        <Tooltip formatter={(val: any) => [typeof val === 'number' ? `${val.toLocaleString()}` : val, "Cases"]} />
+        <Tooltip formatter={formatTooltip} />
         <Bar dataKey="count" name="Cases" radius={[4, 4, 0, 0]}>
           {data.distribution.map((entry, i) => {
             // Color buckets: lower = more red, higher = more green
@@ -88,12 +95,15 @@ function AgentConfidenceChart({ filters }: { filters: MetricsFilters }) {
     average: parseFloat((a.average * 100).toFixed(1)),
   }));
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const formatTooltip = (val: any) => [typeof val === 'number' ? `${val}%` : val, "Avg Confidence"];
+
   return (
     <ResponsiveContainer width="100%" height={300}>
       <BarChart data={chartData} aria-label="Per-agent average confidence scores">
         <XAxis dataKey="agent" tick={{ fontSize: 11 }} />
         <YAxis domain={[0, 100]} tick={{ fontSize: 11 }} unit="%" />
-        <Tooltip formatter={(val: any) => [typeof val === 'number' ? `${val}%` : val, "Avg Confidence"]} />
+        <Tooltip formatter={formatTooltip} />
         <Bar dataKey="average" name="Confidence" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
@@ -110,15 +120,18 @@ function ConditionConfidenceChart({ filters }: { filters: MetricsFilters }) {
   const top15 = data.conditionAverages.slice(0, 15).map((c) => ({
     condition: c.condition,
     average: parseFloat((c.average * 100).toFixed(1)),
-    count: c.count,
+    count: c.sampleSize,
   }));
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const formatTooltip = (val: any) => [typeof val === 'number' ? `${val}%` : val, "Avg Confidence"];
 
   return (
     <ResponsiveContainer width="100%" height={350}>
       <BarChart data={top15} layout="vertical" aria-label="Average confidence per condition">
         <XAxis type="number" domain={[0, 100]} tick={{ fontSize: 11 }} unit="%" />
         <YAxis type="category" dataKey="condition" tick={{ fontSize: 11 }} width={140} />
-        <Tooltip formatter={(val: any) => [typeof val === 'number' ? `${val}%` : val, "Avg Confidence"]} />
+        <Tooltip formatter={formatTooltip} />
         <Bar dataKey="average" name="Confidence" fill="hsl(var(--chart-2, 160 84% 39%))" radius={[0, 4, 4, 0]} />
       </BarChart>
     </ResponsiveContainer>

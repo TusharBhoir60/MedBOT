@@ -1,5 +1,4 @@
 "use client";
-import type { ValueType } from "recharts/types/component/DefaultTooltipContent";
 
 import { useQueryClient } from "@tanstack/react-query";
 import { PhysicianLayout } from "@/components/layout/physician-layout";
@@ -95,6 +94,9 @@ function ReviewStatusChart({ filters }: { filters: MetricsFilters }) {
     { name: "Closed", value: data.closed, color: STATUS_COLORS.closed },
   ].filter((d) => d.value > 0);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const formatTooltip = (val: any) => [typeof val === 'number' ? val.toLocaleString() : val, "Tasks"];
+
   return (
     <ResponsiveContainer width="100%" height={300}>
       <PieChart aria-label="Review status distribution chart">
@@ -114,7 +116,7 @@ function ReviewStatusChart({ filters }: { filters: MetricsFilters }) {
             <Cell key={`cell-${index}`} fill={entry.color} />
           ))}
         </Pie>
-        <Tooltip formatter={(val: any) => [typeof val === 'number' ? val.toLocaleString() : val, "Tasks"]} />
+        <Tooltip formatter={formatTooltip} />
         <Legend />
       </PieChart>
     </ResponsiveContainer>
@@ -179,8 +181,8 @@ function SeverityChart({ filters }: { filters: MetricsFilters }) {
           cy="50%"
           outerRadius={110}
           dataKey="count"
-          nameKey="severity"
-          label={({ severity, percent }: { severity?: string; percent?: number }) => `${severity ?? ""}: ${((percent ?? 0) * 100).toFixed(0)}%`}
+          nameKey="name"
+          label={({ name, percent }: { name?: string; percent?: number }) => `${name ?? ""}: ${((percent ?? 0) * 100).toFixed(0)}%`}
         >
           {data.severityDistribution.map((_, i) => (
             <Cell key={i} fill={SEVERITY_COLORS[i % SEVERITY_COLORS.length]} />

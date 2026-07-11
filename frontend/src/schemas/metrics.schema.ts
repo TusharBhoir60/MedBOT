@@ -20,19 +20,21 @@ export const MetricsOverviewSchema = z.object({
 export type MetricsOverview = z.infer<typeof MetricsOverviewSchema>;
 
 export const ConfidenceDistributionBucketSchema = z.object({
-  range: z.string(),
+  minimum: z.number(),
+  maximum: z.number(),
   count: z.number().int(),
 });
 
 export const AgentConfidenceSchema = z.object({
   agent: z.string(),
   average: z.number(),
+  sampleSize: z.number().int(),
 });
 
 export const ConditionConfidenceSchema = z.object({
   condition: z.string(),
   average: z.number(),
-  count: z.number().int(),
+  sampleSize: z.number().int(),
 });
 
 export const ConfidenceMetricsSchema = z.object({
@@ -85,12 +87,12 @@ export const ConditionCountSchema = z.object({
 });
 
 export const SeverityCountSchema = z.object({
-  severity: z.string(),
+  name: z.string(),
   count: z.number().int(),
 });
 
 export const EscalationDistributionSchema = z.object({
-  status: z.string(),
+  name: z.string(),
   count: z.number().int(),
 });
 
@@ -123,7 +125,8 @@ export type ActivityFeed = z.infer<typeof ActivityFeedSchema>;
 export const SystemComponentHealthSchema = z.object({
   name: z.string(),
   status: z.enum(["healthy", "degraded", "unhealthy"]),
-  latencyMs: z.number(),
+  latencyMs: z.number().nullable(),
+  message: z.string().nullable().optional(),
 });
 
 export const SystemMetricsSchema = z.object({

@@ -1,5 +1,4 @@
 "use client";
-import type { ValueType } from "recharts/types/component/DefaultTooltipContent";
 
 import { useQueryClient } from "@tanstack/react-query";
 import { PhysicianLayout } from "@/components/layout/physician-layout";
@@ -90,6 +89,9 @@ function ReviewOutcomeChart({ filters }: { filters: MetricsFilters }) {
     { name: "Closed", value: data.closed, color: "hsl(220, 13%, 60%)" },
   ].filter((d) => d.value > 0);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const formatTooltip = (val: any) => [typeof val === 'number' ? val.toLocaleString() : val, "Reviews"];
+
   return (
     <ResponsiveContainer width="100%" height={300}>
       <PieChart aria-label="Review outcome distribution donut chart">
@@ -105,7 +107,7 @@ function ReviewOutcomeChart({ filters }: { filters: MetricsFilters }) {
         >
           {chartData.map((entry, i) => <Cell key={i} fill={entry.color} />)}
         </Pie>
-        <Tooltip formatter={(val: any) => [typeof val === 'number' ? val.toLocaleString() : val, "Reviews"]} />
+        <Tooltip formatter={formatTooltip} />
         <Legend />
       </PieChart>
     </ResponsiveContainer>
