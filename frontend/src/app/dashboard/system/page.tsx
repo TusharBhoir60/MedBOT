@@ -44,7 +44,7 @@ const COMPONENT_ICONS: Record<string, React.ElementType> = {
   review_queue: ListChecks,
 };
 
-function SystemComponentCard({ name, status, latencyMs }: { name: string; status: HealthStatus; latencyMs: number }) {
+function SystemComponentCard({ name, status, latencyMs }: { name: string; status: HealthStatus; latencyMs: number | null }) {
   const cfg = STATUS_CONFIG[status];
   const Icon = cfg.icon;
   const normalized = name.toLowerCase().replace(/[^a-z_]/g, "");
@@ -70,7 +70,7 @@ function SystemComponentCard({ name, status, latencyMs }: { name: string; status
         </div>
       </div>
       <div className="text-right shrink-0">
-        <p className="text-sm font-mono font-medium">{latencyMs.toFixed(0)} ms</p>
+        <p className="text-sm font-mono font-medium">{latencyMs !== null ? `${latencyMs.toFixed(0)} ms` : "N/A"}</p>
         <p className="text-xs text-muted-foreground">latency</p>
       </div>
     </div>
