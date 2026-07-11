@@ -1,0 +1,38 @@
+# Environments
+.env
+.env.*
+!.env.example
+!.env.production.example
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+alembic/versions/*.pyc
+
+# Node
+node_modules/
+dist/
+.next/
+coverage/
+
+# Misc
+.DS_Store
+.vscode/
+.idea/
+*.log
+
+# ChromaDB
+chroma_db/
