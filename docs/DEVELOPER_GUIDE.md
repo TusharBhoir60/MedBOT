@@ -51,3 +51,14 @@ Welcome to the AarogyaAgent v2 developer documentation. This guide explains our 
 ## 5. Architectural Principles
 - **Decoupling:** The Frontend and Backend share no state except through explicitly defined API contracts.
 - **Fail Closed:** If the AI engine is unsure, it must gracefully degrade to `handoff` (Human-in-the-Loop) rather than hallucinating a diagnosis.
+
+## 6. Troubleshooting
+
+**"database is locked" during Pytest:**
+This indicates a transaction collision. Ensure you are using the `db_session` fixture and that you haven't opened a separate async engine connection manually within a test. All connections must go through the monkeypatched `async_session_factory`.
+
+**Alembic out of sync:**
+If you see `Target database is not up to date`, you may have switched branches. Run `alembic downgrade base` and then `alembic upgrade head` to rebuild the schema locally, or simply delete your `medbot.db` SQLite file and run migrations from scratch.
+
+**Docker Port Collisions:**
+FastAPI binds to port `8000` and Next.js binds to `3000`. If you encounter `bind: address already in use`, ensure no local instances of Node or Uvicorn are running before executing `docker-compose up`.

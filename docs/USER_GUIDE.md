@@ -40,6 +40,11 @@ Welcome to AarogyaAgent v2. This guide explains how to use the system from both 
 1. Navigate to the **System Health** tab.
 2. Monitor the active connection status of the PostgreSQL database, ChromaDB vector store, and OpenAI LLM provider.
 
+### Operational Activity
+1. Navigate to the **Operational Activity** tab.
+2. View a real-time, paginated feed of system events (e.g., new chat sessions, completed tasks, failed LLM inferences).
+3. Use the activity feed for high-level debugging and auditing of system usage without needing direct server log access.
+
 ## 4. Known Limitations
 - The system currently only supports English interactions. Multilingual support is on the future roadmap.
 - The AI's differential diagnosis is for triage and informational purposes only and does not replace a formal medical diagnosis.
