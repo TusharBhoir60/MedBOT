@@ -3,11 +3,11 @@
 > **Intelligent Triage & Clinical Decision Support System**
 > Secure, AI-powered patient intake and physician review workflows, designed for scale and clinical safety.
 
-![Architecture Illustration](/docs/assets/placeholder-architecture.png)
+![Architecture Illustration](/docs/assets/architecture.png)
 
-[![Release](https://img.shields.io/badge/Release-v1.0.0-blue.svg)](https://github.com/yourusername/AarogyaAgent)
+[![Release](https://img.shields.io/github/v/release/yourusername/AarogyaAgent?color=blue)](https://github.com/yourusername/AarogyaAgent/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
+[![Build Status](https://github.com/yourusername/AarogyaAgent/actions/workflows/backend.yml/badge.svg)](https://github.com/yourusername/AarogyaAgent/actions)
 [![Code Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)]()
 
 ---
@@ -201,15 +201,15 @@ npx playwright test
 
 ---
 
-## 📸 Screenshots (Placeholders)
+## 📸 Screenshots
 
 | Patient Chat Interface | Physician Dashboard |
 | :---: | :---: |
-| ![Chat](/docs/assets/placeholder-chat.png) | ![Dashboard](/docs/assets/placeholder-dashboard.png) |
+| ![Chat](/docs/assets/chat.png) | ![Dashboard](/docs/assets/dashboard.png) |
 
 | Real-Time Analytics | System Observability |
 | :---: | :---: |
-| ![Analytics](/docs/assets/placeholder-analytics.png) | ![Health](/docs/assets/placeholder-health.png) |
+| ![Analytics](/docs/assets/analytics.png) | ![Health](/docs/assets/analytics.png) |
 
 ---
 
