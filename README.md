@@ -1,4 +1,4 @@
-# AarogyaAgent v2 🩺🤖
+# MedBot v2 🩺🤖
 
 > **Intelligent Triage & Clinical Decision Support System**
 > Secure, AI-powered patient intake and physician review workflows, designed for scale and clinical safety.
