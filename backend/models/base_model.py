@@ -7,12 +7,23 @@ locality on INSERT (no random page splits), which is critical for tables
 that will hold millions of triage sessions and agent outputs.
 """
 from datetime import datetime, timezone
-from uuid import UUID
+from uuid import UUID, uuid4
 
-from uuid6 import uuid7
+try:
+    from uuid import uuid7 as _uuid7
+except ImportError:  # pragma: no cover - Python fallback path
+    _uuid7 = None
+
 from sqlalchemy import DateTime, func
 from sqlalchemy.dialects.postgresql import UUID as PG_UUID
 from sqlalchemy.orm import Mapped, mapped_column
+
+
+def _generate_uuid() -> UUID:
+    """Generate a UUIDv7 when available, otherwise fall back to UUIDv4."""
+    if _uuid7 is not None:
+        return _uuid7()
+    return uuid4()
 
 
 class UUIDMixin:
@@ -25,7 +36,7 @@ class UUIDMixin:
     id: Mapped[UUID] = mapped_column(
         PG_UUID(as_uuid=True),
         primary_key=True,
-        default=uuid7,
+        default=_generate_uuid,
         sort_order=-100,
     )
 
