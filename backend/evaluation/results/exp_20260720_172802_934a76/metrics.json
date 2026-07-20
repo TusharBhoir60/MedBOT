@@ -1,0 +1,234 @@
+{
+  "Baseline A: Rule-based": {
+    "overall": {
+      "accuracy": 0.68,
+      "precision": 1.0,
+      "recall": 0.7,
+      "f1": 0.8235294117647058
+    },
+    "per_condition": {
+      "Emergency (Cardiac)": {
+        "precision": 1.0,
+        "recall": 0.8333333333333334,
+        "f1": 0.9090909090909091
+      },
+      "Anemia": {
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1": 0.8571428571428571
+      },
+      "Malaria": {
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1": 0.5
+      },
+      "Hypertension": {
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1": 0.8571428571428571
+      },
+      "Dengue": {
+        "precision": 1.0,
+        "recall": 0.8333333333333334,
+        "f1": 0.9090909090909091
+      }
+    },
+    "referral": {
+      "referral_accuracy": 0.68,
+      "referral_precision": 1.0,
+      "referral_recall": 0.68,
+      "false_referral_rate": 0.0,
+      "missed_emergency_rate": 0.36666666666666664
+    },
+    "high_confidence_error_rate": 0.0,
+    "retrieval": {
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0
+    },
+    "calibration": {
+      "brier_score": 0.05599999999999999,
+      "ece": 0.23199999999999998,
+      "optimal_thresholds": {
+        "f1": 0.30000000000000004,
+        "sensitivity": 0.1,
+        "accuracy": 0.30000000000000004
+      }
+    }
+  },
+  "Baseline B: LLM-only": {
+    "overall": {
+      "accuracy": 0.66,
+      "precision": 1.0,
+      "recall": 0.6333333333333334,
+      "f1": 0.7755102040816327
+    },
+    "per_condition": {
+      "Emergency (Cardiac)": {
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "Anemia": {
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "Malaria": {
+        "precision": 1.0,
+        "recall": 0.8333333333333334,
+        "f1": 0.9090909090909091
+      },
+      "Hypertension": {
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1": 0.8571428571428571
+      },
+      "Dengue": {
+        "precision": 1.0,
+        "recall": 0.5833333333333334,
+        "f1": 0.7368421052631579
+      }
+    },
+    "referral": {
+      "referral_accuracy": 0.66,
+      "referral_precision": 1.0,
+      "referral_recall": 0.66,
+      "false_referral_rate": 0.0,
+      "missed_emergency_rate": 0.3333333333333333
+    },
+    "high_confidence_error_rate": 0.2727272727272727,
+    "retrieval": {
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0
+    },
+    "calibration": {
+      "brier_score": 0.22780579640000004,
+      "ece": 0.07090799999999994,
+      "optimal_thresholds": {
+        "f1": 0.1,
+        "sensitivity": 0.1,
+        "accuracy": 0.1
+      }
+    }
+  },
+  "Baseline C: RAG-only": {
+    "overall": {
+      "accuracy": 0.82,
+      "precision": 1.0,
+      "recall": 0.825,
+      "f1": 0.9041095890410958
+    },
+    "per_condition": {
+      "Emergency (Cardiac)": {
+        "precision": 1.0,
+        "recall": 0.8333333333333334,
+        "f1": 0.9090909090909091
+      },
+      "Anemia": {
+        "precision": 1.0,
+        "recall": 0.875,
+        "f1": 0.9333333333333333
+      },
+      "Malaria": {
+        "precision": 1.0,
+        "recall": 0.8333333333333334,
+        "f1": 0.9090909090909091
+      },
+      "Hypertension": {
+        "precision": 1.0,
+        "recall": 0.8333333333333334,
+        "f1": 0.9090909090909091
+      },
+      "Dengue": {
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1": 0.8571428571428571
+      }
+    },
+    "referral": {
+      "referral_accuracy": 0.82,
+      "referral_precision": 1.0,
+      "referral_recall": 0.82,
+      "false_referral_rate": 0.0,
+      "missed_emergency_rate": 0.2
+    },
+    "high_confidence_error_rate": 0.08,
+    "retrieval": {
+      "recall_at_k": 0.82,
+      "precision_at_k": 0.3280000000000001,
+      "mrr": 0.82,
+      "ndcg": 0.82
+    },
+    "calibration": {
+      "brier_score": 0.14271559440000003,
+      "ece": 0.042168000000000046,
+      "optimal_thresholds": {
+        "f1": 0.1,
+        "sensitivity": 0.1,
+        "accuracy": 0.1
+      }
+    }
+  },
+  "Baseline D: CMAR + RAG": {
+    "overall": {
+      "accuracy": 0.9,
+      "precision": 1.0,
+      "recall": 0.9166666666666666,
+      "f1": 0.9565217391304348
+    },
+    "per_condition": {
+      "Emergency (Cardiac)": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "Anemia": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "Malaria": {
+        "precision": 1.0,
+        "recall": 0.8333333333333334,
+        "f1": 0.9090909090909091
+      },
+      "Hypertension": {
+        "precision": 1.0,
+        "recall": 0.9166666666666666,
+        "f1": 0.9565217391304348
+      },
+      "Dengue": {
+        "precision": 1.0,
+        "recall": 0.8333333333333334,
+        "f1": 0.9090909090909091
+      }
+    },
+    "referral": {
+      "referral_accuracy": 0.9,
+      "referral_precision": 1.0,
+      "referral_recall": 0.9,
+      "false_referral_rate": 0.0,
+      "missed_emergency_rate": 0.13333333333333333
+    },
+    "high_confidence_error_rate": 0.1,
+    "retrieval": {
+      "recall_at_k": 0.9,
+      "precision_at_k": 0.36,
+      "mrr": 0.9,
+      "ndcg": 0.9
+    },
+    "calibration": {
+      "brier_score": 0.08361560620000001,
+      "ece": 0.038461999999999885,
+      "optimal_thresholds": {
+        "f1": 0.1,
+        "sensitivity": 0.1,
+        "accuracy": 0.1
+      }
+    }
+  }
+}

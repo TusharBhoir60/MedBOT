@@ -1,0 +1,202 @@
+{
+  "Baseline A: Rule-based": {
+    "Unknown": {
+      "Unknown": 0,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Dengue": {
+      "Unknown": 2,
+      "Dengue": 10,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Hypertension": {
+      "Unknown": 3,
+      "Dengue": 0,
+      "Hypertension": 9,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Emergency (Cardiac)": {
+      "Unknown": 1,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 5,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Malaria": {
+      "Unknown": 8,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 4,
+      "Anemia": 0
+    },
+    "Anemia": {
+      "Unknown": 2,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 6
+    }
+  },
+  "Baseline B: LLM-only": {
+    "Unknown": {
+      "Unknown": 0,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Dengue": {
+      "Unknown": 5,
+      "Dengue": 7,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Hypertension": {
+      "Unknown": 3,
+      "Dengue": 0,
+      "Hypertension": 9,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Emergency (Cardiac)": {
+      "Unknown": 3,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 3,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Malaria": {
+      "Unknown": 2,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 10,
+      "Anemia": 0
+    },
+    "Anemia": {
+      "Unknown": 4,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 4
+    }
+  },
+  "Baseline C: RAG-only": {
+    "Unknown": {
+      "Unknown": 0,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Dengue": {
+      "Unknown": 3,
+      "Dengue": 9,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Hypertension": {
+      "Unknown": 2,
+      "Dengue": 0,
+      "Hypertension": 10,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Emergency (Cardiac)": {
+      "Unknown": 1,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 5,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Malaria": {
+      "Unknown": 2,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 10,
+      "Anemia": 0
+    },
+    "Anemia": {
+      "Unknown": 1,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 7
+    }
+  },
+  "Baseline D: CMAR + RAG": {
+    "Unknown": {
+      "Unknown": 0,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Dengue": {
+      "Unknown": 2,
+      "Dengue": 10,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Hypertension": {
+      "Unknown": 1,
+      "Dengue": 0,
+      "Hypertension": 11,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Emergency (Cardiac)": {
+      "Unknown": 0,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 6,
+      "Malaria": 0,
+      "Anemia": 0
+    },
+    "Malaria": {
+      "Unknown": 2,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 10,
+      "Anemia": 0
+    },
+    "Anemia": {
+      "Unknown": 0,
+      "Dengue": 0,
+      "Hypertension": 0,
+      "Emergency (Cardiac)": 0,
+      "Malaria": 0,
+      "Anemia": 8
+    }
+  }
+}

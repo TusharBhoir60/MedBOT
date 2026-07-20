@@ -89,8 +89,7 @@ function ReviewOutcomeChart({ filters }: { filters: MetricsFilters }) {
     { name: "Closed", value: data.closed, color: "hsl(220, 13%, 60%)" },
   ].filter((d) => d.value > 0);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const formatTooltip = (val: any) => [typeof val === 'number' ? val.toLocaleString() : val, "Reviews"];
+  const formatTooltip = (val: number | string) => [typeof val === 'number' ? val.toLocaleString() : val, "Reviews"];
 
   return (
     <ResponsiveContainer width="100%" height={300}>

@@ -3,6 +3,7 @@ RAG Vector Store abstraction and ChromaDB implementation.
 Provides a protocol interface so the backing store can be swapped
 (ChromaDB → FAISS / Qdrant / Pinecone) without changing agent code.
 """
+import functools
 import logging
 import re
 from pathlib import Path
@@ -93,6 +94,7 @@ class ChromaVectorStore:
         logger.info("Ingested %d documents into ChromaDB.", len(ids))
         return len(ids)
 
+    @functools.lru_cache(maxsize=128)
     def retrieve(
         self, query: str, top_k: int = 5
     ) -> List[Tuple[MedicalDocument, float]]:

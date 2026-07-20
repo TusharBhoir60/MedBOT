@@ -31,6 +31,20 @@ logger = logging.getLogger(__name__)
 # Captured at import time; used to calculate uptime_seconds
 _START_TIME: float = time.monotonic()
 
+_EMA_STATE = {
+    "db": None,
+    "queue": None,
+    "vs": None,
+    "llm": None,
+}
+
+def _update_ema(key: str, new_val: float, alpha: float = 0.2) -> float:
+    if _EMA_STATE[key] is None:
+        _EMA_STATE[key] = new_val
+    else:
+        _EMA_STATE[key] = new_val * alpha + _EMA_STATE[key] * (1 - alpha)
+    return round(_EMA_STATE[key], 2)
+
 
 class HealthService:
     """Handles health check business logic for liveness, readiness, and custom probes.
@@ -70,7 +84,7 @@ class HealthService:
         ping_result = await self._repository.ping_db()
 
         db_status = str(ping_result.get("status", "unknown"))
-        db_latency_ms = float(ping_result.get("latency_ms", 0.0))
+        db_latency_ms = _update_ema("db", float(ping_result.get("latency_ms", 0.0)))
 
         overall_status = "healthy" if db_status == "connected" else "degraded"
 
@@ -128,14 +142,18 @@ class HealthService:
         vs_future = ping_vector_store()
         llm_future = ping_llm_provider()
         
-        (vs_status, vs_latency), (llm_status, llm_latency) = await asyncio.gather(
+        (vs_status, vs_raw_latency), (llm_status, llm_raw_latency) = await asyncio.gather(
             vs_future, llm_future
         )
         
         db_status = str(ping_result.get("status", "unknown"))
         queue_status = str(queue_result.get("status", "unknown"))
-        queue_latency = float(queue_result.get("latency_ms", 0.0))
         
+        db_latency_ms = _update_ema("db", float(ping_result.get("latency_ms", 0.0)))
+        queue_latency = _update_ema("queue", float(queue_result.get("latency_ms", 0.0)))
+        vs_latency = _update_ema("vs", float(vs_raw_latency))
+        llm_latency = _update_ema("llm", float(llm_raw_latency))
+
         # Overall status is degraded if any component is unhealthy
         overall_status = "healthy"
         if "unhealthy" in [db_status, queue_status, vs_status, llm_status] or "disconnected" in [db_status]:
@@ -163,7 +181,7 @@ class HealthService:
         logger.debug("DB health check requested")
         ping_result = await self._repository.ping_db()
         db_status = str(ping_result.get("status", "unknown"))
-        db_latency_ms = float(ping_result.get("latency_ms", 0.0))
+        db_latency_ms = _update_ema("db", float(ping_result.get("latency_ms", 0.0)))
         overall_status = "healthy" if db_status == "connected" else "degraded"
         return HealthDBResponse(
             status=overall_status,

@@ -2,8 +2,10 @@
 asyncio_mode = "auto"
 testpaths = ["tests"]
 python_files = ["test_*.py"]
+pythonpath = [".."]
 
 [tool.mypy]
+mypy_path = ".."
 python_version = "3.12"
 strict = true
 ignore_missing_imports = true

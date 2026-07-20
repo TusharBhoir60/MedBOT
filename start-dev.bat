@@ -44,18 +44,19 @@ if not exist "%FRONTEND_DIR%\node_modules" (
 start "MedBot Backend" cmd /k "pushd \"%BACKEND_DIR%\" && call .venv\Scripts\activate.bat && python -m uvicorn main:app --host 127.0.0.1 --port 8000"
 
 set "BACKEND_READY=0"
-for /l %%i in (1,1,30) do (
-    powershell -NoProfile -Command "try { $resp = Invoke-WebRequest -UseBasicParsing -Uri 'http://127.0.0.1:8000/api/v1/health/live' -TimeoutSec 2; if ($resp.StatusCode -ge 200 -and $resp.StatusCode -lt 300) { exit 0 } } catch { exit 1 }" >nul 2>&1
+for /l %%i in (1,1,40) do (
+    python -c "import sys, urllib.request; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health/live', timeout=2).getcode() < 400 else 1)" >nul 2>&1
     if not errorlevel 1 (
         set "BACKEND_READY=1"
         goto :start_frontend
     )
-    timeout /t 1 /nobreak >nul
+    ping 127.0.0.1 -n 2 >nul
 )
 
 :start_frontend
 if "%BACKEND_READY%"=="1" (
     start "MedBot Frontend" cmd /k "pushd \"%FRONTEND_DIR%\" && npm run dev"
+    echo Frontend launch requested.
 ) else (
     echo Backend did not become ready in time. Please check the backend window.
 )
