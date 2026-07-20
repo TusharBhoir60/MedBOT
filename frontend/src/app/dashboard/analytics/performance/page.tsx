@@ -61,8 +61,7 @@ function DistributionChart({ filters }: { filters: MetricsFilters }) {
     count: d.count,
   }));
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const formatTooltip = (val: any) => [typeof val === 'number' ? `${val.toLocaleString()}` : val, "Cases"];
+  const formatTooltip = (val: number | string) => [typeof val === 'number' ? `${val.toLocaleString()}` : val, "Cases"];
 
   return (
     <ResponsiveContainer width="100%" height={300}>
@@ -95,8 +94,7 @@ function AgentConfidenceChart({ filters }: { filters: MetricsFilters }) {
     average: parseFloat((a.average * 100).toFixed(1)),
   }));
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const formatTooltip = (val: any) => [typeof val === 'number' ? `${val}%` : val, "Avg Confidence"];
+  const formatTooltip = (val: number | string) => [typeof val === 'number' ? `${val}%` : val, "Avg Confidence"];
 
   return (
     <ResponsiveContainer width="100%" height={300}>
@@ -123,8 +121,7 @@ function ConditionConfidenceChart({ filters }: { filters: MetricsFilters }) {
     count: c.sampleSize,
   }));
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const formatTooltip = (val: any) => [typeof val === 'number' ? `${val}%` : val, "Avg Confidence"];
+  const formatTooltip = (val: number | string) => [typeof val === 'number' ? `${val}%` : val, "Avg Confidence"];
 
   return (
     <ResponsiveContainer width="100%" height={350}>

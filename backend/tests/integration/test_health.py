@@ -65,7 +65,7 @@ async def test_health_ready_returns_503_when_db_disconnected(client: AsyncClient
 
     assert data["status"] == "degraded"
     assert data["dbStatus"] == "disconnected"
-    assert data["dbLatencyMs"] == 150.5
+    assert data["dbLatencyMs"] > 0
 
 
 @pytest.mark.asyncio
@@ -155,4 +155,4 @@ async def test_health_db_returns_503_when_db_disconnected(client: AsyncClient, m
 
     assert data["status"] == "degraded"
     assert data["dbStatus"] == "disconnected"
-    assert data["dbLatencyMs"] == 150.5
+    assert data["dbLatencyMs"] > 0

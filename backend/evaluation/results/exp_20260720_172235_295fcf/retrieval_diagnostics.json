@@ -1,0 +1,2310 @@
+{
+  "Baseline A: Rule-based": [
+    {
+      "patient_id": "P000",
+      "query": "rash pain behind eyes",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P001",
+      "query": "nausea sweating",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P002",
+      "query": "nausea fever body aches chills",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P003",
+      "query": "severe chest pain shortness of breath sweating",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P004",
+      "query": "headache flushing",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P005",
+      "query": "fatigue chest pain dizziness pale skin",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P006",
+      "query": "severe headache pain behind eyes high fever mild bleeding",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P007",
+      "query": "nosebleeds visual changes",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P008",
+      "query": "shortness of breath fainting sweating nausea",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P009",
+      "query": "joint pain pain behind eyes high fever",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P010",
+      "query": "chest pain weakness pale skin headaches",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P011",
+      "query": "nausea headache",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P012",
+      "query": "headache nausea fever body aches",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P013",
+      "query": "muscle pain pain behind eyes rash high fever",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P014",
+      "query": "rash pain behind eyes muscle pain severe headache",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P015",
+      "query": "dizziness visual changes",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P016",
+      "query": "mild bleeding pain behind eyes severe headache",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P017",
+      "query": "dizziness cold hands and feet",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P018",
+      "query": "pain radiating to arm nausea",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P019",
+      "query": "chest pain visual changes nosebleeds",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P020",
+      "query": "sweats fever",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P021",
+      "query": "rash high fever severe headache mild bleeding",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P022",
+      "query": "vomiting headache chills",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P023",
+      "query": "fatigue dizziness",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P024",
+      "query": "fatigue headaches dizziness cold hands and feet",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P025",
+      "query": "nausea headache",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P026",
+      "query": "dizziness fatigue",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P027",
+      "query": "severe headache joint pain",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P028",
+      "query": "joint pain high fever",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P029",
+      "query": "fainting sweating shortness of breath severe chest pain",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P030",
+      "query": "headache dizziness",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P031",
+      "query": "nausea fever",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P032",
+      "query": "nausea fever body aches vomiting",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P033",
+      "query": "nosebleeds flushing",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P034",
+      "query": "muscle pain mild bleeding high fever",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P035",
+      "query": "pain behind eyes mild bleeding",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P036",
+      "query": "fainting severe chest pain shortness of breath",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P037",
+      "query": "dizziness shortness of breath nosebleeds",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P038",
+      "query": "joint pain pain behind eyes high fever muscle pain",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P039",
+      "query": "headaches chest pain cold hands and feet fatigue",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P040",
+      "query": "dizziness shortness of breath flushing chest pain",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P041",
+      "query": "chills vomiting fever sweats",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P042",
+      "query": "headache fever",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P043",
+      "query": "fever headache body aches vomiting",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P044",
+      "query": "fever vomiting",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P045",
+      "query": "chest pain dizziness flushing",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P046",
+      "query": "dizziness nosebleeds",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P047",
+      "query": "dizziness visual changes headache",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P048",
+      "query": "cold hands and feet dizziness",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P049",
+      "query": "nosebleeds chest pain headache visual changes",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    }
+  ],
+  "Baseline B: LLM-only": [
+    {
+      "patient_id": "P000",
+      "query": "rash pain behind eyes",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P001",
+      "query": "nausea sweating",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P002",
+      "query": "nausea fever body aches chills",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P003",
+      "query": "severe chest pain shortness of breath sweating",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P004",
+      "query": "headache flushing",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P005",
+      "query": "fatigue chest pain dizziness pale skin",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P006",
+      "query": "severe headache pain behind eyes high fever mild bleeding",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P007",
+      "query": "nosebleeds visual changes",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P008",
+      "query": "shortness of breath fainting sweating nausea",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P009",
+      "query": "joint pain pain behind eyes high fever",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P010",
+      "query": "chest pain weakness pale skin headaches",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P011",
+      "query": "nausea headache",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P012",
+      "query": "headache nausea fever body aches",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P013",
+      "query": "muscle pain pain behind eyes rash high fever",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P014",
+      "query": "rash pain behind eyes muscle pain severe headache",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P015",
+      "query": "dizziness visual changes",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P016",
+      "query": "mild bleeding pain behind eyes severe headache",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P017",
+      "query": "dizziness cold hands and feet",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P018",
+      "query": "pain radiating to arm nausea",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P019",
+      "query": "chest pain visual changes nosebleeds",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P020",
+      "query": "sweats fever",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P021",
+      "query": "rash high fever severe headache mild bleeding",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P022",
+      "query": "vomiting headache chills",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P023",
+      "query": "fatigue dizziness",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P024",
+      "query": "fatigue headaches dizziness cold hands and feet",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P025",
+      "query": "nausea headache",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P026",
+      "query": "dizziness fatigue",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P027",
+      "query": "severe headache joint pain",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P028",
+      "query": "joint pain high fever",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P029",
+      "query": "fainting sweating shortness of breath severe chest pain",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P030",
+      "query": "headache dizziness",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P031",
+      "query": "nausea fever",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P032",
+      "query": "nausea fever body aches vomiting",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P033",
+      "query": "nosebleeds flushing",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P034",
+      "query": "muscle pain mild bleeding high fever",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P035",
+      "query": "pain behind eyes mild bleeding",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P036",
+      "query": "fainting severe chest pain shortness of breath",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P037",
+      "query": "dizziness shortness of breath nosebleeds",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P038",
+      "query": "joint pain pain behind eyes high fever muscle pain",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P039",
+      "query": "headaches chest pain cold hands and feet fatigue",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P040",
+      "query": "dizziness shortness of breath flushing chest pain",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P041",
+      "query": "chills vomiting fever sweats",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P042",
+      "query": "headache fever",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P043",
+      "query": "fever headache body aches vomiting",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P044",
+      "query": "fever vomiting",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P045",
+      "query": "chest pain dizziness flushing",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P046",
+      "query": "dizziness nosebleeds",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P047",
+      "query": "dizziness visual changes headache",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P048",
+      "query": "cold hands and feet dizziness",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    },
+    {
+      "patient_id": "P049",
+      "query": "nosebleeds chest pain headache visual changes",
+      "ranked_docs": [],
+      "similarity_scores": [],
+      "citations": []
+    }
+  ],
+  "Baseline C: RAG-only": [
+    {
+      "patient_id": "P000",
+      "query": "rash pain behind eyes",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P001",
+      "query": "nausea sweating",
+      "ranked_docs": [
+        "doc_emergency_(cardiac)_1",
+        "doc_emergency_(cardiac)_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_emergency_(cardiac)_1"
+      ]
+    },
+    {
+      "patient_id": "P002",
+      "query": "nausea fever body aches chills",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P003",
+      "query": "severe chest pain shortness of breath sweating",
+      "ranked_docs": [
+        "doc_emergency_(cardiac)_1",
+        "doc_emergency_(cardiac)_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_emergency_(cardiac)_1"
+      ]
+    },
+    {
+      "patient_id": "P004",
+      "query": "headache flushing",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P005",
+      "query": "fatigue chest pain dizziness pale skin",
+      "ranked_docs": [
+        "doc_anemia_1",
+        "doc_anemia_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_anemia_1"
+      ]
+    },
+    {
+      "patient_id": "P006",
+      "query": "severe headache pain behind eyes high fever mild bleeding",
+      "ranked_docs": [
+        "doc_unknown_1",
+        "doc_unknown_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_unknown_1"
+      ]
+    },
+    {
+      "patient_id": "P007",
+      "query": "nosebleeds visual changes",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P008",
+      "query": "shortness of breath fainting sweating nausea",
+      "ranked_docs": [
+        "doc_emergency_(cardiac)_1",
+        "doc_emergency_(cardiac)_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_emergency_(cardiac)_1"
+      ]
+    },
+    {
+      "patient_id": "P009",
+      "query": "joint pain pain behind eyes high fever",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P010",
+      "query": "chest pain weakness pale skin headaches",
+      "ranked_docs": [
+        "doc_anemia_1",
+        "doc_anemia_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_anemia_1"
+      ]
+    },
+    {
+      "patient_id": "P011",
+      "query": "nausea headache",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P012",
+      "query": "headache nausea fever body aches",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P013",
+      "query": "muscle pain pain behind eyes rash high fever",
+      "ranked_docs": [
+        "doc_unknown_1",
+        "doc_unknown_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_unknown_1"
+      ]
+    },
+    {
+      "patient_id": "P014",
+      "query": "rash pain behind eyes muscle pain severe headache",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P015",
+      "query": "dizziness visual changes",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P016",
+      "query": "mild bleeding pain behind eyes severe headache",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P017",
+      "query": "dizziness cold hands and feet",
+      "ranked_docs": [
+        "doc_anemia_1",
+        "doc_anemia_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_anemia_1"
+      ]
+    },
+    {
+      "patient_id": "P018",
+      "query": "pain radiating to arm nausea",
+      "ranked_docs": [
+        "doc_emergency_(cardiac)_1",
+        "doc_emergency_(cardiac)_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_emergency_(cardiac)_1"
+      ]
+    },
+    {
+      "patient_id": "P019",
+      "query": "chest pain visual changes nosebleeds",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P020",
+      "query": "sweats fever",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P021",
+      "query": "rash high fever severe headache mild bleeding",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P022",
+      "query": "vomiting headache chills",
+      "ranked_docs": [
+        "doc_unknown_1",
+        "doc_unknown_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_unknown_1"
+      ]
+    },
+    {
+      "patient_id": "P023",
+      "query": "fatigue dizziness",
+      "ranked_docs": [
+        "doc_unknown_1",
+        "doc_unknown_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_unknown_1"
+      ]
+    },
+    {
+      "patient_id": "P024",
+      "query": "fatigue headaches dizziness cold hands and feet",
+      "ranked_docs": [
+        "doc_anemia_1",
+        "doc_anemia_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_anemia_1"
+      ]
+    },
+    {
+      "patient_id": "P025",
+      "query": "nausea headache",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P026",
+      "query": "dizziness fatigue",
+      "ranked_docs": [
+        "doc_anemia_1",
+        "doc_anemia_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_anemia_1"
+      ]
+    },
+    {
+      "patient_id": "P027",
+      "query": "severe headache joint pain",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P028",
+      "query": "joint pain high fever",
+      "ranked_docs": [
+        "doc_unknown_1",
+        "doc_unknown_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_unknown_1"
+      ]
+    },
+    {
+      "patient_id": "P029",
+      "query": "fainting sweating shortness of breath severe chest pain",
+      "ranked_docs": [
+        "doc_unknown_1",
+        "doc_unknown_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_unknown_1"
+      ]
+    },
+    {
+      "patient_id": "P030",
+      "query": "headache dizziness",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P031",
+      "query": "nausea fever",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P032",
+      "query": "nausea fever body aches vomiting",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P033",
+      "query": "nosebleeds flushing",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P034",
+      "query": "muscle pain mild bleeding high fever",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P035",
+      "query": "pain behind eyes mild bleeding",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P036",
+      "query": "fainting severe chest pain shortness of breath",
+      "ranked_docs": [
+        "doc_emergency_(cardiac)_1",
+        "doc_emergency_(cardiac)_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_emergency_(cardiac)_1"
+      ]
+    },
+    {
+      "patient_id": "P037",
+      "query": "dizziness shortness of breath nosebleeds",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P038",
+      "query": "joint pain pain behind eyes high fever muscle pain",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P039",
+      "query": "headaches chest pain cold hands and feet fatigue",
+      "ranked_docs": [
+        "doc_anemia_1",
+        "doc_anemia_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_anemia_1"
+      ]
+    },
+    {
+      "patient_id": "P040",
+      "query": "dizziness shortness of breath flushing chest pain",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P041",
+      "query": "chills vomiting fever sweats",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P042",
+      "query": "headache fever",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P043",
+      "query": "fever headache body aches vomiting",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P044",
+      "query": "fever vomiting",
+      "ranked_docs": [
+        "doc_unknown_1",
+        "doc_unknown_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_unknown_1"
+      ]
+    },
+    {
+      "patient_id": "P045",
+      "query": "chest pain dizziness flushing",
+      "ranked_docs": [
+        "doc_unknown_1",
+        "doc_unknown_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_unknown_1"
+      ]
+    },
+    {
+      "patient_id": "P046",
+      "query": "dizziness nosebleeds",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P047",
+      "query": "dizziness visual changes headache",
+      "ranked_docs": [
+        "doc_unknown_1",
+        "doc_unknown_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_unknown_1"
+      ]
+    },
+    {
+      "patient_id": "P048",
+      "query": "cold hands and feet dizziness",
+      "ranked_docs": [
+        "doc_anemia_1",
+        "doc_anemia_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_anemia_1"
+      ]
+    },
+    {
+      "patient_id": "P049",
+      "query": "nosebleeds chest pain headache visual changes",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2"
+      ],
+      "similarity_scores": [
+        0.85,
+        0.72
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    }
+  ],
+  "Baseline D: CMAR + RAG": [
+    {
+      "patient_id": "P000",
+      "query": "rash pain behind eyes",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P001",
+      "query": "nausea sweating",
+      "ranked_docs": [
+        "doc_emergency_(cardiac)_1",
+        "doc_emergency_(cardiac)_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_emergency_(cardiac)_1"
+      ]
+    },
+    {
+      "patient_id": "P002",
+      "query": "nausea fever body aches chills",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P003",
+      "query": "severe chest pain shortness of breath sweating",
+      "ranked_docs": [
+        "doc_emergency_(cardiac)_1",
+        "doc_emergency_(cardiac)_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_emergency_(cardiac)_1"
+      ]
+    },
+    {
+      "patient_id": "P004",
+      "query": "headache flushing",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P005",
+      "query": "fatigue chest pain dizziness pale skin",
+      "ranked_docs": [
+        "doc_anemia_1",
+        "doc_anemia_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_anemia_1"
+      ]
+    },
+    {
+      "patient_id": "P006",
+      "query": "severe headache pain behind eyes high fever mild bleeding",
+      "ranked_docs": [
+        "doc_unknown_1",
+        "doc_unknown_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_unknown_1"
+      ]
+    },
+    {
+      "patient_id": "P007",
+      "query": "nosebleeds visual changes",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P008",
+      "query": "shortness of breath fainting sweating nausea",
+      "ranked_docs": [
+        "doc_emergency_(cardiac)_1",
+        "doc_emergency_(cardiac)_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_emergency_(cardiac)_1"
+      ]
+    },
+    {
+      "patient_id": "P009",
+      "query": "joint pain pain behind eyes high fever",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P010",
+      "query": "chest pain weakness pale skin headaches",
+      "ranked_docs": [
+        "doc_anemia_1",
+        "doc_anemia_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_anemia_1"
+      ]
+    },
+    {
+      "patient_id": "P011",
+      "query": "nausea headache",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P012",
+      "query": "headache nausea fever body aches",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P013",
+      "query": "muscle pain pain behind eyes rash high fever",
+      "ranked_docs": [
+        "doc_unknown_1",
+        "doc_unknown_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_unknown_1"
+      ]
+    },
+    {
+      "patient_id": "P014",
+      "query": "rash pain behind eyes muscle pain severe headache",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P015",
+      "query": "dizziness visual changes",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P016",
+      "query": "mild bleeding pain behind eyes severe headache",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P017",
+      "query": "dizziness cold hands and feet",
+      "ranked_docs": [
+        "doc_anemia_1",
+        "doc_anemia_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_anemia_1"
+      ]
+    },
+    {
+      "patient_id": "P018",
+      "query": "pain radiating to arm nausea",
+      "ranked_docs": [
+        "doc_emergency_(cardiac)_1",
+        "doc_emergency_(cardiac)_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_emergency_(cardiac)_1"
+      ]
+    },
+    {
+      "patient_id": "P019",
+      "query": "chest pain visual changes nosebleeds",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P020",
+      "query": "sweats fever",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P021",
+      "query": "rash high fever severe headache mild bleeding",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P022",
+      "query": "vomiting headache chills",
+      "ranked_docs": [
+        "doc_unknown_1",
+        "doc_unknown_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_unknown_1"
+      ]
+    },
+    {
+      "patient_id": "P023",
+      "query": "fatigue dizziness",
+      "ranked_docs": [
+        "doc_anemia_1",
+        "doc_anemia_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_anemia_1"
+      ]
+    },
+    {
+      "patient_id": "P024",
+      "query": "fatigue headaches dizziness cold hands and feet",
+      "ranked_docs": [
+        "doc_anemia_1",
+        "doc_anemia_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_anemia_1"
+      ]
+    },
+    {
+      "patient_id": "P025",
+      "query": "nausea headache",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P026",
+      "query": "dizziness fatigue",
+      "ranked_docs": [
+        "doc_anemia_1",
+        "doc_anemia_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_anemia_1"
+      ]
+    },
+    {
+      "patient_id": "P027",
+      "query": "severe headache joint pain",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P028",
+      "query": "joint pain high fever",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P029",
+      "query": "fainting sweating shortness of breath severe chest pain",
+      "ranked_docs": [
+        "doc_emergency_(cardiac)_1",
+        "doc_emergency_(cardiac)_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_emergency_(cardiac)_1"
+      ]
+    },
+    {
+      "patient_id": "P030",
+      "query": "headache dizziness",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P031",
+      "query": "nausea fever",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P032",
+      "query": "nausea fever body aches vomiting",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P033",
+      "query": "nosebleeds flushing",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P034",
+      "query": "muscle pain mild bleeding high fever",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P035",
+      "query": "pain behind eyes mild bleeding",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P036",
+      "query": "fainting severe chest pain shortness of breath",
+      "ranked_docs": [
+        "doc_emergency_(cardiac)_1",
+        "doc_emergency_(cardiac)_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_emergency_(cardiac)_1"
+      ]
+    },
+    {
+      "patient_id": "P037",
+      "query": "dizziness shortness of breath nosebleeds",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P038",
+      "query": "joint pain pain behind eyes high fever muscle pain",
+      "ranked_docs": [
+        "doc_dengue_1",
+        "doc_dengue_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_dengue_1"
+      ]
+    },
+    {
+      "patient_id": "P039",
+      "query": "headaches chest pain cold hands and feet fatigue",
+      "ranked_docs": [
+        "doc_anemia_1",
+        "doc_anemia_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_anemia_1"
+      ]
+    },
+    {
+      "patient_id": "P040",
+      "query": "dizziness shortness of breath flushing chest pain",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P041",
+      "query": "chills vomiting fever sweats",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P042",
+      "query": "headache fever",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P043",
+      "query": "fever headache body aches vomiting",
+      "ranked_docs": [
+        "doc_malaria_1",
+        "doc_malaria_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_malaria_1"
+      ]
+    },
+    {
+      "patient_id": "P044",
+      "query": "fever vomiting",
+      "ranked_docs": [
+        "doc_unknown_1",
+        "doc_unknown_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_unknown_1"
+      ]
+    },
+    {
+      "patient_id": "P045",
+      "query": "chest pain dizziness flushing",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P046",
+      "query": "dizziness nosebleeds",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    },
+    {
+      "patient_id": "P047",
+      "query": "dizziness visual changes headache",
+      "ranked_docs": [
+        "doc_unknown_1",
+        "doc_unknown_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_unknown_1"
+      ]
+    },
+    {
+      "patient_id": "P048",
+      "query": "cold hands and feet dizziness",
+      "ranked_docs": [
+        "doc_anemia_1",
+        "doc_anemia_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_anemia_1"
+      ]
+    },
+    {
+      "patient_id": "P049",
+      "query": "nosebleeds chest pain headache visual changes",
+      "ranked_docs": [
+        "doc_hypertension_1",
+        "doc_hypertension_2",
+        "doc_general_guideline"
+      ],
+      "similarity_scores": [
+        0.92,
+        0.88,
+        0.65
+      ],
+      "citations": [
+        "doc_hypertension_1"
+      ]
+    }
+  ]
+}
