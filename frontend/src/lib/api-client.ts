@@ -114,7 +114,7 @@ export const apiClient = {
       ...options,
       method: "POST",
       headers: getHeaders(options.headers),
-      body: body ? JSON.stringify(body) : undefined,
+      body: body ? JSON.stringify(body) : options.body,
     });
     return handleResponse<T>(response);
   },
@@ -125,7 +125,7 @@ export const apiClient = {
       ...options,
       method: "PATCH",
       headers: getHeaders(options.headers),
-      body: body ? JSON.stringify(body) : undefined,
+      body: body ? JSON.stringify(body) : options.body,
     });
     return handleResponse<T>(response);
   },
@@ -136,7 +136,7 @@ export const apiClient = {
       ...options,
       method: "PUT",
       headers: getHeaders(options.headers),
-      body: body ? JSON.stringify(body) : undefined,
+      body: body ? JSON.stringify(body) : options.body,
     });
     return handleResponse<T>(response);
   },

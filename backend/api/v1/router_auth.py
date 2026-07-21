@@ -14,7 +14,11 @@ class TokenResponse(BaseModel):
     access_token: str
     token_type: str = "bearer"
 
-# Hardcoded users for Sprint 6.5 since registration is out of scope
+class RegisterRequest(BaseModel):
+    username: str
+    password: str
+
+# Hardcoded users for Sprint 6.5
 MOCK_USERS = {
     "dr_smith": {
         "password": "password123",
@@ -30,7 +34,7 @@ MOCK_USERS = {
 async def login(form_data: OAuth2PasswordRequestForm = Depends()) -> Any:
     """
     Authenticate user and issue a JWT access token.
-    Uses mock credentials since registration is out of scope.
+    Uses mock credentials or users created in memory.
     """
     user = MOCK_USERS.get(form_data.username)
     if not user or user["password"] != form_data.password:
@@ -46,3 +50,21 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()) -> Any:
     )
     
     return {"access_token": access_token, "token_type": "bearer"}
+
+@router.post("/register")
+async def register(data: RegisterRequest) -> Any:
+    """
+    Register a new user in memory.
+    """
+    if data.username in MOCK_USERS:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Username already registered"
+        )
+    
+    MOCK_USERS[data.username] = {
+        "password": data.password,
+        "roles": ["physician"]
+    }
+    
+    return {"message": "User created successfully"}
