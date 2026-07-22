@@ -19,4 +19,12 @@ export const authService = {
   register: async (data: LoginRequest): Promise<{ message: string }> => {
     return apiClient.post<{ message: string }>("/api/v1/auth/register", data);
   },
+
+  forgotPassword: async (username: string): Promise<{ message: string; reset_token?: string }> => {
+    return apiClient.post<{ message: string; reset_token?: string }>("/api/v1/auth/forgot-password", { username });
+  },
+
+  resetPassword: async (token: string, new_password: string): Promise<{ message: string }> => {
+    return apiClient.post<{ message: string }>("/api/v1/auth/reset-password", { token, new_password });
+  },
 };

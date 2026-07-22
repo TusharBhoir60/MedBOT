@@ -2,5 +2,6 @@
 
 from .review import ReviewTask, ReviewComment, ReviewStatus
 from .chat import ChatSession
+from .user import User
 
-__all__ = ["ReviewTask", "ReviewComment", "ReviewStatus", "ChatSession"]
+__all__ = ["ReviewTask", "ReviewComment", "ReviewStatus", "ChatSession", "User"]

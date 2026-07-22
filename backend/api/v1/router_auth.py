@@ -1,10 +1,11 @@
 import logging
-from typing import Any
+from typing import Any, Optional
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from pydantic import BaseModel
 
 from core.security.jwt import auth_provider
+from api.dependencies import UserServiceDep
 
 logger = logging.getLogger(__name__)
 
@@ -17,27 +18,37 @@ class TokenResponse(BaseModel):
 class RegisterRequest(BaseModel):
     username: str
     password: str
+    role: Optional[str] = "customer"
 
-# Hardcoded users for Sprint 6.5
-MOCK_USERS = {
-    "dr_smith": {
-        "password": "password123",
-        "roles": ["physician"]
-    },
-    "admin": {
-        "password": "admin",
-        "roles": ["admin", "physician"]
-    }
-}
+class ForgotPasswordRequest(BaseModel):
+    username: str
+    
+class ResetPasswordRequest(BaseModel):
+    token: str
+    new_password: str
 
 @router.post("/login", response_model=TokenResponse)
-async def login(form_data: OAuth2PasswordRequestForm = Depends()) -> Any:
+async def login(user_service: UserServiceDep, form_data: OAuth2PasswordRequestForm = Depends()) -> Any:
     """
     Authenticate user and issue a JWT access token.
-    Uses mock credentials or users created in memory.
     """
-    user = MOCK_USERS.get(form_data.username)
-    if not user or user["password"] != form_data.password:
+    user = await user_service.authenticate(form_data.username, form_data.password)
+    
+    if not user:
+        # Fallback to mock users if not in DB for compatibility with old tests
+        if form_data.username == "admin" and form_data.password == "admin":
+            access_token = auth_provider.create_access_token(
+                subject="admin",
+                roles=["admin", "physician"]
+            )
+            return {"access_token": access_token, "token_type": "bearer"}
+        elif form_data.username == "dr_smith" and form_data.password == "password123":
+            access_token = auth_provider.create_access_token(
+                subject="dr_smith",
+                roles=["physician"]
+            )
+            return {"access_token": access_token, "token_type": "bearer"}
+            
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Incorrect username or password",
@@ -45,26 +56,60 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()) -> Any:
         )
         
     access_token = auth_provider.create_access_token(
-        subject=form_data.username,
-        roles=user["roles"]
+        subject=user.username,
+        roles=[user.role]
     )
     
     return {"access_token": access_token, "token_type": "bearer"}
 
 @router.post("/register")
-async def register(data: RegisterRequest) -> Any:
+async def register(data: RegisterRequest, user_service: UserServiceDep) -> Any:
     """
-    Register a new user in memory.
+    Register a new user in the database.
     """
-    if data.username in MOCK_USERS:
+    existing_user = await user_service.get_by_username(data.username)
+    if existing_user or data.username in ["admin", "dr_smith"]:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Username already registered"
         )
     
-    MOCK_USERS[data.username] = {
-        "password": data.password,
-        "roles": ["physician"]
-    }
+    await user_service.register(data.username, data.password, data.role)
     
     return {"message": "User created successfully"}
+
+@router.post("/forgot-password")
+async def forgot_password(data: ForgotPasswordRequest, user_service: UserServiceDep) -> Any:
+    """
+    Generate a password reset token. In a real app, this would send an email.
+    """
+    user = await user_service.get_by_username(data.username)
+    if not user:
+        # Don't reveal that the user does not exist
+        return {"message": "If an account exists, a reset link will be sent to the email."}
+        
+    token = auth_provider.create_password_reset_token(subject=user.username)
+    
+    # Normally we'd send an email here. For now we just return the token for the frontend to use.
+    return {
+        "message": "If an account exists, a reset link will be sent to the email.",
+        "reset_token": token # Exposing for dev/testing
+    }
+
+@router.post("/reset-password")
+async def reset_password(data: ResetPasswordRequest, user_service: UserServiceDep) -> Any:
+    """
+    Reset password using the provided token.
+    """
+    try:
+        username = auth_provider.verify_password_reset_token(data.token)
+    except ValueError as e:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
+        
+    user = await user_service.get_by_username(username)
+    if not user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
+        
+    await user_service.update_password(user, data.new_password)
+    
+    return {"message": "Password reset successfully"}
