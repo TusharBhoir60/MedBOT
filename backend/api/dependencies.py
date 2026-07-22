@@ -20,6 +20,8 @@ from repositories.chat_repository import ChatRepository
 from services.chat_service import ChatService
 from repositories.metrics_repository import MetricsRepository
 from services.metrics_service import MetricsService
+from repositories.user_repository import UserRepository
+from services.user_service import UserService
 
 logger = logging.getLogger(__name__)
 
@@ -66,6 +68,18 @@ def get_metrics_service(
     return MetricsService(metrics_repository=repository, health_service=health_service)
 
 MetricsServiceDep = Annotated[MetricsService, Depends(get_metrics_service)]
+
+def get_user_repository(session: DatabaseSession) -> UserRepository:
+    """Construct a UserRepository with the request-scoped DB session."""
+    return UserRepository(session=session)
+
+def get_user_service(
+    repository: Annotated[UserRepository, Depends(get_user_repository)],
+) -> UserService:
+    """Construct a UserService with its UserRepository dependency."""
+    return UserService(repository=repository)
+
+UserServiceDep = Annotated[UserService, Depends(get_user_service)]
 
 security = HTTPBearer()
 

@@ -15,6 +15,14 @@ class AuthProvider(ABC):
     @abstractmethod
     def decode_token(self, token: str) -> Dict[str, Any]:
         pass
+        
+    @abstractmethod
+    def create_password_reset_token(self, subject: str) -> str:
+        pass
+        
+    @abstractmethod
+    def verify_password_reset_token(self, token: str) -> str:
+        pass
 
 class JWTAuthProvider(AuthProvider):
     """Standalone JWT implementation using PyJWT."""
@@ -41,6 +49,27 @@ class JWTAuthProvider(AuthProvider):
             raise ValueError("Token has expired")
         except jwt.PyJWTError:
             raise ValueError("Invalid authentication token")
+            
+    def create_password_reset_token(self, subject: str) -> str:
+        # 15 minutes expiration for password resets
+        expire = datetime.now(timezone.utc) + timedelta(minutes=15)
+        to_encode = {
+            "sub": subject,
+            "type": "reset_password",
+            "exp": expire
+        }
+        return jwt.encode(to_encode, self.secret_key, algorithm=self.algorithm)
+        
+    def verify_password_reset_token(self, token: str) -> str:
+        try:
+            payload = jwt.decode(token, self.secret_key, algorithms=[self.algorithm])
+            if payload.get("type") != "reset_password":
+                raise ValueError("Invalid token type")
+            return payload["sub"]
+        except jwt.ExpiredSignatureError:
+            raise ValueError("Password reset token has expired")
+        except jwt.PyJWTError:
+            raise ValueError("Invalid password reset token")
 
 # Singleton instance to be used by dependencies
 auth_provider: AuthProvider = JWTAuthProvider()
