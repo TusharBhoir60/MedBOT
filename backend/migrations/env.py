@@ -26,6 +26,9 @@ from database.base import Base
 # Sprint 1: no domain models yet — Base.metadata is empty.
 # Sprint 2+: import models here, e.g.:
 #   from models.patient import Patient
+from models.review import ReviewTask, ReviewComment
+from models.chat import ChatSession
+from models.user import User
 # ────────────────────────────────────────────────────────────────────────────
 
 config = context.config
